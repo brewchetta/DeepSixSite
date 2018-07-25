@@ -4,24 +4,38 @@
     <title>Deep Six</title>
     <link href="D6CYOA.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='D6CYOA.js'></script>
   </head>
   <body>
-    <h1 class=pText>Welcome to the Deep Six</h1>
-    <p class=pText id=para1>And so we begin. Here is some sample text of what's going on.</p>
-    <img src='Assets/0(SteampunkBar).jpg'>
-    <p class=pText id=para2>Some text for the second paragraph.</p>
-    <div class=bContainer>
-      <div class=bBox>
-        <p class=bText>Here is a button</p>
+    <div id='bannerDiv'>
+      <img id='bannerImg' src='Assets/0(SteampunkBar).jpg'>
+    </div>
+    <div mainDiv>
+      <p id=tooltip>Hover over highlighted words for their definition!</p>
+      <h1 class='pText'>Welcome to the Deep Six</h1>
+      <p class='pText' id='para1'>A woman slides onto the stool next to you. She's buoyant, energetic, dangerously cheerful. It takes a single look to size her up: she's not wearing a wetsuit but instead a short floral-print dress and outlandish sun hat. She's a <span id='nub' class='tip'>nub</span>.
+      </br></br>She's sized you up in the same time.</p>
+      <img class='mainImg' src='Assets/0(SteampunkBar).jpg'>
+      <p class='pText' id='para2'>"What's that?" she asks. She wants to know about the tablet in front of you, the one right next to your bowl of hot noodles. The bartender hands this young woman a drink, a shirley temple you'd guess, and the woman shrugs and carries the drink to a nearby bubble window.
+      </br></br>Outside it you can see the ocean particulate dance like moths in the dim tavern light. Beyond that is the darkness. What mariners call the <span id='deepSix' class='tip'>Deep Six.</p>
+    </div>
+    <div class='bContainer'>
+      <div class='bBox' id='bAlpha'>
+        <p class='bText'>Button to alpha choice</p>
+        <img class='bImg' src='Assets/0(SteampunkBar).jpg'>
       </div>
-      <div class=bBox>
-        <p class=bText>Here is a button</p>
+      <div class='bBox' id='bBeta'>
+        <p class='bText'>Button to beta choice</p>
+        <img class='bImg' src='Assets/0(SteampunkBar).jpg'>
       </div>
-      <div class=bBox>
-        <p class=bText>Here is a button</p>
+      <div class='bBox' id='bGamma'>
+        <p class='bText'>Button to gamma choice</p>
+        <img class='bImg' src='Assets/0(SteampunkBar).jpg'>
       </div>
     </div>
-    <p class=disclaimer>Copyright Chett Tiller </br>All assets used under fair use agreement</p>
+    <p class='disclaimer'>Copyright Chett Tiller
+    </br>All visual assets are temporary</p>
   </div>
   </body>
 </html>

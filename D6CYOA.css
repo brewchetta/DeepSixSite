@@ -11,10 +11,22 @@ body {
 /*  border: 1px solid black;*/
 }
 
-img {
+#bannerDiv {
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+}
+
+#bannerImg {
+  width: 110%;
+  position: relative;
+  top: -50%;
+}
+
+.mainImg {
   display: block;
   margin: auto;
-  max-width: 800px;
+  max-width: 80%;
   height: 400px;
   overflow: hidden;
   border: 8px solid #181a3d;
@@ -22,9 +34,26 @@ img {
 }
 
 .bText {
+  position: relative;
+  top: 10px;
+  left: 0;
   margin: auto;
   color: white;
   text-align: center;
+}
+
+.bImg {
+  position: relative;
+  max-height: 300px;
+  top: -100px;
+  left: -50px;
+  opacity: 0;
+  z-index: 2;
+}
+
+.bImg:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 1;
 }
 
 .bBox {
@@ -34,12 +63,13 @@ img {
   margin: 10px;
   height: 100px;
   width: 100px;
+  overflow: hidden;
 }
 
 .bContainer {
   margin: auto;
-  border: solid white;
-  max-width: 30%;
+  max-width: 400px;
+  padding: auto;
 }
 
 a {
@@ -77,6 +107,24 @@ h1 {
   display: block;
   margin-top: 50px;
   margin-bottom: 10px;
-  border: solid white;
-  border-radius: 3px;
+}
+
+.tip {
+  color: white;
+}
+
+#tooltip{
+  position: absolute;
+  display: inline-block;
+  background: black;
+  color: white;
+  max-width: 200px;
+  text-align: center;
+  font-size: 0.8em;
+  border-radius: 5px;
+  margin-left: 8px;
+  margin-top: 8px;
+  border: solid white 3px;
+  border-radius: 5px;
+  padding: 2px;
 }
