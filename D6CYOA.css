@@ -27,7 +27,7 @@ body {
   display: block;
   margin: auto;
   max-width: 80%;
-  height: 400px;
+  max-height: 400px;
   overflow: hidden;
   border: 8px solid #181a3d;
   border-radius: 10px;
