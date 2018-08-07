@@ -6,6 +6,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('.bBox').click(function(){
+    $('h3').fadeOut(500).delay(500).fadeIn(2000);
     $('h1').fadeOut(500);
     $('.disclaimer').fadeOut(500).fadeIn(500);
     $('.bContainer').fadeOut(500).delay(500).fadeIn(2000);
@@ -17,6 +18,7 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('h3').click(function(){
     pageNum = 0;
+    $('#bannerImg').attr('src', 'Assets/1(BlueDock).jpg');
     $('h1').delay(500).fadeIn(500);
     $('h3').fadeOut(500);
     $('.disclaimer').fadeOut(500).fadeIn(500);
@@ -35,7 +37,6 @@ $(document).ready(function(){
 var pageNum = 0;
 $(document).ready(function(){
   $('#bAlpha').click(function(){
-    $('h3').delay(500).fadeIn(1000);
     switch (pageNum) {
       case 0:
         pageNum = 1;
