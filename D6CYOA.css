@@ -44,7 +44,7 @@ body {
 
 .bImg {
   position: relative;
-  max-height: 300px;
+  max-height: 200px;
   top: -100px;
   left: -50px;
   opacity: 0;
