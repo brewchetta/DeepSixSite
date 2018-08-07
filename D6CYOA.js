@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('#bannerImg').attr('src', 'Assets/1(BlueDock).jpg');
     $('#tooltip').fadeOut(1);
+    $('h3').fadeOut(1);
 });
 
 $(document).ready(function(){
@@ -12,11 +13,29 @@ $(document).ready(function(){
   });
 });
 
-
+// The restart button
+$(document).ready(function(){
+  $('h3').click(function(){
+    pageNum = 0;
+    $('h1').delay(500).fadeIn(500);
+    $('h3').fadeOut(500);
+    $('.disclaimer').fadeOut(500).fadeIn(500);
+    $('.bContainer').fadeOut(500).delay(500).fadeIn(2000);
+    $('#bannerDiv').fadeOut(500, function(){scrollTo(0,0);}).fadeIn(500);
+    $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/0(NoodleBar).jpg')}).fadeIn(1500);
+    window.setTimeout(function(){$('.bImg').attr('src','Assets/0(NoodleBar).jpg');}, 500);
+    $('#bAlpha').children('.bText').fadeOut(1).html('A boring old submarine manifest').fadeIn(2000);
+    $('#bBeta').children('.bText').fadeOut(1).html('A harpoon and wetsuit catalog').fadeIn(2000);
+    $('#bGamma').children('.bText').fadeOut(1).html('<br>Something ... classified').fadeIn(2000);
+    $('#para1').fadeOut(500, function(){$(this).html(para1_0); nub()}).fadeIn(1000);
+    $('#para2').fadeOut(500, function(){$(this).html(para2_0); deepSix()}).fadeIn(1000);
+  });
+});
 
 var pageNum = 0;
 $(document).ready(function(){
   $('#bAlpha').click(function(){
+    $('h3').delay(500).fadeIn(1000);
     switch (pageNum) {
       case 0:
         pageNum = 1;
@@ -24,9 +43,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_1); hydro();}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_1); sixsixsix();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/1(GoatSkull).jpg');}, 500);
-        $('#bAlpha').children('.bText').html('<br>Fine, just fine, you\'ll wait');
-        $('#bBeta').children('.bText').html('<br>Keep to your schedule');
-        $('#bGamma').children('.bText').html('You\'ll wait, but only if you get a discount');
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Fine, just fine, you\'ll wait').fadeIn(2000);
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Keep to your schedule').fadeIn(2000);
+        $('#bGamma').children('.bText').fadeOut(1).html('You\'ll wait, but only if you get a discount').fadeIn(2000);
         break;
       case 1:
         pageNum = 4;
@@ -34,9 +53,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_4);}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_4); preSub(); admiralty(); sixsixsix();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/1(GoatSkull).jpg');}, 500);
-        $('#bAlpha').children('.bText').html('<br>Stop to help');
-        $('#bBeta').children('.bText').html('<br>Keep going past them');
-        $('#bGamma').children('.bText').html('Let\'s go around, as in way around');
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Stop to help').fadeIn(2000);
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Keep going past them').fadeIn(2000);
+        $('#bGamma').children('.bText').fadeOut(1).html('Let\'s go around, as in way around').fadeIn(2000);
         break;
       default:
         alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
@@ -54,9 +73,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_2); newYork();}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_2);}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/2(BlueEye).jpg');}, 500);
-        $('#bAlpha').children('.bText').html('<br>As if she\'d survive');
-        $('#bBeta').children('.bText').html('No chance but let\'s keep chatting');
-        $('#bGamma').children('.bText').html('<br>Alright let\'s go!');
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>As if she\'d survive').fadeIn(2000);
+        $('#bBeta').children('.bText').fadeOut(1).html('No chance but let\'s keep chatting').fadeIn(2000);
+        $('#bGamma').children('.bText').fadeOut(1).html('<br>Alright let\'s go!').fadeIn(2000);
         break;
         case 1:
           pageNum = 5;
@@ -64,9 +83,9 @@ $(document).ready(function(){
           $('#para1').fadeOut(500, function(){$(this).html(para1_5);}).fadeIn(1000);
           $('#para2').fadeOut(500, function(){$(this).html(para2_5); preSub(); hab();}).fadeIn(1000);
           window.setTimeout(function(){$('.bImg').attr('src','Assets/5().jpg');}, 500);
-          $('#bAlpha').children('.bText').html('<br>Outrun them');
-          $('#bBeta').children('.bText').html('<br>Ram them, knock them out');
-          $('#bGamma').children('.bText').html('<br>Send an SOS');
+          $('#bAlpha').children('.bText').fadeOut(1).html('<br>Outrun them').fadeIn(2000);
+          $('#bBeta').children('.bText').fadeOut(1).html('<br>Ram them, knock them out').fadeIn(2000);
+          $('#bGamma').children('.bText').fadeOut(1).html('<br>Send an SOS').fadeIn(2000);
           break;
       default:
         alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
@@ -84,9 +103,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_3);}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_3); newYork();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/3(Bartender).jpg');}, 500);
-        $('#bAlpha').children('.bText').html('<br>Claim ignorance');
-        $('#bBeta').children('.bText').html('<br>Say what you know');
-        $('#bGamma').children('.bText').html('<br>Send them on a goosechase');
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Claim ignorance').fadeIn(2000);
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Say what you know').fadeIn(2000);
+        $('#bGamma').children('.bText').fadeOut(1).html('<br>Send them on a goosechase').fadeIn(2000);
         break;
         case 1:
           pageNum = 6;
@@ -94,9 +113,9 @@ $(document).ready(function(){
           $('#para1').fadeOut(500, function(){$(this).html(para1_6);}).fadeIn(1000);
           $('#para2').fadeOut(500, function(){$(this).html(para2_6);}).fadeIn(1000);
           window.setTimeout(function(){$('.bImg').attr('src','Assets/3(Bartender).jpg');}, 500);
-          $('#bAlpha').children('.bText').html('');
-          $('#bBeta').children('.bText').html('');
-          $('#bGamma').children('.bText').html('');
+          $('#bAlpha').children('.bText').fadeOut(1).html('').fadeIn(2000);
+          $('#bBeta').children('.bText').fadeOut(1).html('').fadeIn(2000);
+          $('#bGamma').children('.bText').fadeOut(1).html('').fadeIn(2000);
           break;
       default:
         alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
@@ -128,6 +147,17 @@ $(document).ready(function(){
   });
 })
 
+$(document).ready(function(){
+  $('h3').mouseenter(function(e){
+    var mouseX = e.pageX + 5;
+    var mouseY = e.pageY;
+    $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('You will lose all progress if you do this');
+  });
+  $('h3').mouseleave(function(){
+    $('#tooltip').fadeToggle(500);
+  });
+})
+
 // Tooltip functions past page 0 go here
 function sixsixsix() {
   $('#sixsixsix').mouseenter(function(e){
@@ -136,6 +166,28 @@ function sixsixsix() {
     $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('People who worship the devil as their apocalyptic saviour');
   });
   $('#sixsixsix').mouseleave(function(){
+    $('#tooltip').fadeToggle(500);
+  });
+};
+
+function deepSix() {
+  $('#deepSix').mouseenter(function(e){
+    var mouseX = e.pageX + 5;
+    var mouseY = e.pageY;
+    $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('The dangerous stretches of ocean between ports');
+  });
+  $('#deepSix').mouseleave(function(){
+    $('#tooltip').fadeToggle(500);
+  });
+};
+
+function nub() {
+  $('#nub').mouseenter(function(e){
+    var mouseX = e.pageX + 5;
+    var mouseY = e.pageY;
+    $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('Non-Useful Body, a civilian');
+  });
+  $('#nub').mouseleave(function(){
     $('#tooltip').fadeToggle(500);
   });
 };
@@ -197,6 +249,11 @@ function hab(){
 
 // Narrative paragraph content goes here
 // Content is ordered as paragraph number and then page number
+
+const para1_0 = 'A woman slides onto the stool next to you. She\'s buoyant, energetic, dangerously cheerful. It takes a single look to size her up: she\'s not wearing a wetsuit but instead a short floral-print dress and outlandish sun hat. She\'s a <span id=nub class=tip>nub</span>.<br><br>She\'s sized you up in the same time.';
+
+const para2_0 = '\"What\'s that?\" she asks. She wants to know about the tablet in front of you, the one right next to your bowl of hot noodles. The bartender hands this young woman a drink, a shirley temple you\'d guess, and the woman shrugs and carries the drink to a nearby bubble window.<br><br>Outside it you can see the ocean particulate dance like moths in the dim tavern light. Beyond that is the darkness. What mariners call the <span id=deepSix class=tip>Deep Six.</span><br><br>You turn back to your tablet. What were you looking at again?';
+
 const para1_1 = "Maybe it's the years that have gotten to you, maybe it's the shit quality of the booze around here. Either way, you're tired. At one point this bar carried real dirt grown food. Now it's all <span class='tip' id='hydro'>hydro</span>. You're old enough, you can tell the difference. These noodles sure weren't made from dirt grown rice.</br></br>But what's to be done?";
 
 const para2_1 = "You collect your belongings. The sub\'ll leave in thirty, and it\'s six decks below. And to think, twenty-four decks above and then another mile up is the surface of the Atlantic. Slick with oil, boiling with storms. Deadly.</br></br>Yeah, as if you\'re safer down here.</br></br>The tablet pings before you reach the dock. Everything\'s on schedule, the crew\'s just waiting for you. If only they\'d put elevators in this place, here you are descending a stairwell while exposed pipes drizzle condensation above your head. As you walk onto the docking deck and into your sub bay, a woman passes you and then stops and says, \"Morning captain. Don\'t head off yet, I haven\'t gotten your torpedoes onto the ship.\" </br></br>It takes a second to register. Why were they marked as delivered on the tablet? She\'s burly, a <span id='sixsixsix' class='tip'>six-six-sixer</span> with a goat\'s skull tattooed across her bald scalp and piercings that sprout across her face.";
