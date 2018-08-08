@@ -14,7 +14,6 @@ $(document).ready(function(){
     $('#bAlpha').css( 'cursor', 'pointer' );
     $('#bBeta').css( 'cursor', 'pointer' );
     $('#bGamma').css( 'cursor', 'pointer' );
-    $('h3').css( 'cursor', 'pointer' );
   });
 });
 
@@ -66,10 +65,10 @@ $(document).ready(function(){
       case 1:
         pageNum = 4;
         torpedoes = 4;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/0(SteampunkBar).jpg')}).fadeIn(1500);
+        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/4().jpg')}).fadeIn(1500);
         $('#para1').fadeOut(500, function(){$(this).html(para1_4);}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_4); preSub(); admiralty(); sixsixsix();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/1(GoatSkull).jpg');}, 500);
+        window.setTimeout(function(){$('.bImg').attr('src','Assets/4().jpg');}, 500);
         $('#bAlpha').children('.bText').fadeOut(1).html('<br>Stop to help').fadeIn(2000); // ?
         $('#bBeta').children('.bText').fadeOut(1).html('<br>Keep going past them').fadeIn(2000); // ?
         $('#bGamma').children('.bText').fadeOut(1).html('Let\'s go around, as in way around').fadeIn(2000); // ?
@@ -101,19 +100,19 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_2); newYork();}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_2);}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/2(BlueEye).jpg');}, 500);
-        $('#bAlpha').children('.bText').fadeOut(1).html('<br>As if she\'d survive').fadeIn(2000);
-        $('#bBeta').children('.bText').fadeOut(1).html('No chance but let\'s keep chatting').fadeIn(2000);
-        $('#bGamma').children('.bText').fadeOut(1).html('<br>Alright let\'s go!').fadeIn(2000);
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>She\'d just slow you down').fadeIn(2000); // ?
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Find out why she\'s so interested').fadeIn(2000); // ?
+        $('#bGamma').children('.bText').fadeOut(1).html('<br>Why not? Let\s go now!').fadeIn(2000); // ?
         break;
       case 1:
         pageNum = 5;
         $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/5().jpg')}).fadeIn(1500);
         $('#para1').fadeOut(500, function(){$(this).html(para1_5);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_5);}).fadeIn(1000);
+        $('#para2').fadeOut(500, function(){$(this).html(para2_5); admiralty(); deepSix(); preSub(); newBrooklyn();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/5().jpg');}, 500);
-        $('#bAlpha').children('.bText').fadeOut(1).html('').fadeIn(2000);
-        $('#bBeta').children('.bText').fadeOut(1).html('').fadeIn(2000);
-        $('#bGamma').children('.bText').fadeOut(1).html('').fadeIn(2000);
+        $('#bAlpha').children('.bText').fadeOut(1).html('').fadeIn(2000); // ?
+        $('#bBeta').children('.bText').fadeOut(1).html('').fadeIn(2000); // ?
+        $('#bGamma').children('.bText').fadeOut(1).html('').fadeIn(2000); // ?
         break;
       default:
         alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
@@ -132,9 +131,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_3);}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_3); newYork();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/3(Bartender).jpg');}, 500);
-        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Claim ignorance').fadeIn(2000);
-        $('#bBeta').children('.bText').fadeOut(1).html('<br>Say what you know').fadeIn(2000);
-        $('#bGamma').children('.bText').fadeOut(1).html('<br>Send them on a goosechase').fadeIn(2000);
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Claim ignorance').fadeIn(2000); // 7
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Say what you know').fadeIn(2000); // ?
+        $('#bGamma').children('.bText').fadeOut(1).html('<br>Send them on a goosechase').fadeIn(2000); // ?
         break;
         case 1:
         pageNum = 6;
@@ -142,9 +141,9 @@ $(document).ready(function(){
         $('#para1').fadeOut(500, function(){$(this).html(para1_6);}).fadeIn(1000);
         $('#para2').fadeOut(500, function(){$(this).html(para2_6); preSub(); hab();}).fadeIn(1000);
         window.setTimeout(function(){$('.bImg').attr('src','Assets/6().jpg');}, 500);
-        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Outrun them').fadeIn(2000);
-        $('#bBeta').children('.bText').fadeOut(1).html('<br>Ram them, knock them out').fadeIn(2000);
-        $('#bGamma').children('.bText').fadeOut(1).html('<br>Send an SOS').fadeIn(2000);
+        $('#bAlpha').children('.bText').fadeOut(1).html('<br>Outrun them').fadeIn(2000); // ?
+        $('#bBeta').children('.bText').fadeOut(1).html('<br>Ram them, knock them out').fadeIn(2000); // ?
+        $('#bGamma').children('.bText').fadeOut(1).html('<br>Send an SOS').fadeIn(2000); // ?
         break;
       default:
         alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
@@ -276,6 +275,17 @@ function hab(){
   });
 }
 
+function newBrooklyn(){
+  $('#newBrooklyn').mouseenter(function(e){
+    var mouseX = e.pageX + 5;
+    var mouseY = e.pageY;
+    $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('One of the largest habs in the Atlantic with a population of over 500,000');
+  });
+  $('#newBrooklyn').mouseleave(function(){
+    $('#tooltip').fadeToggle(500);
+  });
+}
+
 // Narrative paragraph content goes here
 // Content is ordered as paragraph number and then page number
 
@@ -299,9 +309,9 @@ const para1_4 = "She senses your impatience and works quickly. It takes a little
 
 const para2_4 = "And you\'re out there now. Alone. The currents this deep are gentle, they don\'t rock the submarine. Your crew of five watches their viewscreens lazily before the first mate and another crewperson head off to their bunks.<br><br>Sandy gives you a wave and a nod, she\'s your best navigator. You\'re on course, she means, and then she gives her monitor a puzzled look. \"There\'s an SOS up ahead,\" she says. \"<span id='admiralty' class='tip'>Admiralty Board</span>. Black box.\" <br><br>She\'s trying her best to look impassive. The Admiralty Board is well supplied, nothing sinks their convoys. Still, you\'d get in their good graces if you stopped to help.";
 
-const para1_5 = ' ';
+const para1_5 = 'Forget the torpedoes. You haven\'t run into trouble in the Deep Six for a few months now, and you\'re expected in <span id=newBrooklyn class=tip>New Brooklyn</span> in ten days. Your professional reputation is unmarred by late deliveries, you decide to keep it that way. <br><br>The <span class=tip id=preSub> pre-sub</span> awaits you.<br><br>Seal and pressurize the submarine, decouple from the moor, activate navigational equipment, full reverse.<br><br>Everything moves smoothly, you\'ve done this job more than a hundred times before. As you move out into the <span id=deepSix class=tip>Deep Six</span>, the lights dim automatically to adjust to the darkness. In only a mile the station will be a hazy glow behind you, an angelic halo.';
 
-const para2_5 = ' ';
+const para2_5 = para2_4;
 
 const para1_6 = "You argue. You\'re on a schedule you say. You mention your distaste for these juvenile devil worshippers. They\'re basically irresponsible teens. You\'d have ignored her completely if she wasn\'t the only dealer in armaments on this <span id='hab' class='tip'>hab</span>. <br><br>She scowls and leaves.<br><br>You head into the submarine and begin your <span id='preSub' class='tip'>pre-sub</span>. Sandy calibrates the navigation map and you\'re checking perishables when Eddie calls you from the pilot seat. You hurry up and see what he sees: about twelve or so six-six-sixers, some of them with knives and harpoons, one with an old double edged sword. And the two with blowtorches.<br><br>\"We\'ve gotta go,\" says Eddie as the woman and her group stride forward. \"We\'ve gotta go!\"<br><br>You immediately jam the red alert and everything inside the sub turns a shade of crimson. Eddie throws the switch on the docking moor and also the reverse. The moor cracks, probably unusable. Backing and submerging at the same time, all the while the six-six-sixers leap up onto the hull. You hear the sound of the blowtorches.";
 
