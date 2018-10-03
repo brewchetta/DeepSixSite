@@ -33,19 +33,13 @@ $(document).ready(function(){
 });
 
 //Various variables that might affect the story are stored here
-
+// (Possibly change to an object to condense it?)
 var pageNum = 0;
-
 var torpedoes = 0;
-
 var tailed = false;
-
 var animal = '';
-
 var damage = 0;
-
 var wounded = false;
-
 var serumData = 0;
 
 // The restart button
@@ -71,6 +65,14 @@ $(document).ready(function(){
     $('#para2').fadeOut(500, function(){$(this).html(para2_0); assignTooltips();}).fadeIn(1000);
   });
 });
+
+/* New plan to refactor this work:
+1. Create a number of smaller functional chunks that can be called in a main change page function.
+2. Reformat pages so on normal monitors and tablets they're a single page.
+3. Reformat buttons so it adds and subtracts buttons as needed
+4. Have only one paragraphs chunk per page. Make larger 'pages' without choices easily clicked through
+
+
 
 // Comments after a button choice tell which page that choice goes to
 //Button A
@@ -244,6 +246,7 @@ $(document).ready(function(){
   });
 });
 
+// Tooltips bound to an element's id
 const tooltips = {
   signLang: 'ASL is a common language among divers in the Atlantic who can\'t afford JANUS helmet communicators',
   kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
@@ -261,12 +264,13 @@ const tooltips = {
   sixsixsix: 'People who worship the devil as their apocalyptic saviour'
 };
 
+// This must be called on every new page to bind tooltips
 function assignTooltips() {
   $('.tip').mouseenter(
     function(e){
       var mouseX = e.pageX + 5;
       var mouseY = e.pageY;
-      $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text('tooltip selector text');
+      $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text(tooltips[this.id]);
   });
   $('.tip').mouseleave(function(){
     $('#tooltip').fadeToggle(500);
@@ -329,7 +333,14 @@ const para1_12 = 'At least you saw it squirming out before it reached your head.
 
 const para2_12 = para2_11;
 
-// Old Tooltips
+
+
+
+
+
+
+
+// Old Tooltip Functions, Kept for Posterity :P
 /*$(document).ready(function(){
   $('#nub').mouseenter(function(e){
     var mouseX = e.pageX + 5;
