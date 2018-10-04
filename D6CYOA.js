@@ -71,6 +71,10 @@ $(document).ready(function(){
 2. Reformat pages so on normal monitors and tablets they're a single page.
 3. Reformat buttons so it adds and subtracts buttons as needed
 4. Have only one paragraphs chunk per page. Make larger 'pages' without choices easily clicked through
+5. Build a map so I can easily see where different pages lead
+6. Build a new intro splash page
+7. Cookies? Need to create some sort of save support and load system
+*/
 
 
 
