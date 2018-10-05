@@ -33,6 +33,14 @@ var serumData = 0;
 ////////////////////////////////////////////////////////////
 // Load Page Functions
 
+function loadPage(page) {
+  loadTransition();
+  $('.mainImg').fadeOut(500, function(){$(this).attr('src', page.image)}).fadeIn(1500);
+  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).fadeIn(1000);
+  $('#para2').fadeOut(500, function(){$(this).html(para2_1); assignTooltips();}).fadeIn(1000);
+  loadButtons(page.buttons);
+};
+
 function loadButtons(buttons) {
   $('.bContainer').fadeOut(500).delay(1000).fadeIn(2000);
   window.setTimeout(function(){
@@ -57,18 +65,6 @@ function loadTransition(){
   $('.disclaimer').fadeOut(500).fadeIn(500);
 }
 
-// The loadPage function will eventually hand out several of its transitional effects to smaller functions
-function loadPage(page) {
-  loadTransition();
-  $('.mainImg').fadeOut(500, function(){$(this).attr('src', page.image)}).fadeIn(1500);
-  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).fadeIn(1000);
-  $('#para2').fadeOut(500, function(){$(this).html(para2_1); assignTooltips();}).fadeIn(1000);
-  loadButtons(page.buttons);
-};
-
-
-// This large switch determines
-// Comments after a button choice tell which page that choice goes to
 function bindButtons(){
   $('.bBox').click(function(){
     pageNum = Number(this.id);
@@ -76,7 +72,7 @@ function bindButtons(){
   });
 }
 
-// Tooltips bound to an element's id
+// These tooltips are bound to an element's id
 const tooltips = {
   signLang: 'ASL is a common language among divers in the Atlantic who can\'t afford JANUS helmet communicators',
   kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
@@ -164,21 +160,46 @@ const para1_12 = 'At least you saw it squirming out before it reached your head.
 const para2_12 = para2_11;
 
 
-// Constants that aren't outside the file need to be declared before the page object
+// The page numbers MUST be in order of their index or everything will be out of sync!!!
 const pages = {
-  page0: {},
-  page1: {
-    image: 'Assets/1(BlueDock).jpg', // This will be the main image
+  page0: { // This is the page number, correlated with index number
+    image: '', // This will be the main image
     buttons: { // Adds buttons, their id determines which page they lead to
+      1:{image:'Assets/', txt:''},
+      2:{image:'Assets/', txt:''},
+      3:{image:'Assets/', txt:''}
+    },
+    para: '', // The text that will be displayed
+    variables: {} // How variables will change
+  },
+  page1: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {
       4:{image:'Assets/1(GoatSkull).jpg', txt:'Fine, just fine, you\'ll wait'},
       5:{image:'Assets/1(GoatSkull).jpg', txt:'Keep to your schedule'},
       6:{image:'Assets/1(GoatSkull).jpg', txt:'You\'ll wait, but only if you get a discount'}
     },
-    para: para1_1, // Controls what the text will be
-    variables: {} //Controls whether variables change
+    para: para1_1,
+    variables: {}
   },
-  page2: {},
-  page3: {},
+  page2: {
+    image: 'Asssets/2(LibertyRuin).jpg',
+    buttons: {
+      666:{image:'Assets/2(BlueEye).jpg', txt:'Why not? Let\'s find a sub headed that way!'},
+      666:{image:'Assets/2(BlueEye).jpg', txt:'She\'d just slow you down'}
+    },
+    para: para1_2,
+    variables: {}
+  },
+  page3: {
+    image: 'Assets/3(Bartender).jpg',
+    buttons: {
+      7:{image:'Assets/3(Bartender).jpg', txt:'Claim ignorance'},
+      666:{image:'Assets/3(Bartender).jpg', txt:'Tell them what you know'}
+    },
+    para: para1_3,
+    variables: {}
+  },
   page4: {
     image: 'Assets/4().jpg',
     buttons: {
@@ -188,178 +209,78 @@ const pages = {
     para: para1_4,
     variables: {torpedoes: 4}
   },
-  page5: {},
-  page6: {},
-  page7: {},
-}
-
-
-/*      case 1:
-        break;
-      case 3:
-        pageNum = 7;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/7(Market).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_7);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_7); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/7(Market).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Confront them').fadeIn(2000); // ?
-        $('#1').children('.bText').fadeOut(1).html('<br>Lose them').fadeIn(2000); // 8
-        $('#2').children('.bText').fadeOut(1).html('<br>Wait until they leave').fadeIn(2000); // set tail to true, ?
-        break;
-      case 4:
-        pageNum = 9;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/9(IndustrialHab).jpg'); $('#bannerImg').attr('src', 'Assets/9(IndustrialHab).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_9);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_9); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/9(IndustrialHab).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Dock at the empty moor').fadeIn(2000); // 10
-        $('#1').children('.bText').fadeOut(1).html('<br>Lead a diving team over').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Nope nope nope, you\'re leaving').fadeIn(2000); // set tail to true, ?
-        break;
-      case 5:
-        pageNum = 9;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/9(IndustrialHab).jpg'); $('#bannerImg').attr('src', 'Assets/9(IndustrialHab).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_9);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_9); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/9(IndustrialHab).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Dock at the empty moor').fadeIn(2000); // 10
-        $('#1').children('.bText').fadeOut(1).html('<br>Lead a diving team over').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Nope nope nope, you\'re leaving').fadeIn(2000); // set tail to true, ?
-        break;
-      case 9:
-        pageNum = 10;
-        animal = 'piglets';
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/10(Cryo).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_10);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_10); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/10(Cryo).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Read it').fadeIn(2000); // 11
-        $('#1').children('.bText').fadeOut(1).html('Download it, the Admiralty can read it').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Wait, why is that cow here?').fadeIn(2000); // 12
-        break;
-      case 10:
-        if (wounded == false) {
-          serumData = 1;
-          pageNum = 11;
-          damage = 1;
-          wounded = true;
-          $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/11().jpg')}).fadeIn(1500);
-          $('#para1').fadeOut(500, function(){$(this).html(para1_11);}).fadeIn(1000);
-          $('#para2').fadeOut(500, function(){$(this).html(para2_11); assignTooltips();}).fadeIn(1000);
-          window.setTimeout(function(){$('.bImg').attr('src','Assets/11().jpg');}, 500);
-          $('#0').children('.bText').fadeOut(1).html('<br>Full ahead!').fadeIn(2000); // ?
-          $('#1').children('.bText').fadeOut(1).html('Fire torpedo!').fadeIn(2000); // ?
-          $('#2').children('.bText').fadeOut(1).html('Outmaneuver it until it gets tired').fadeIn(2000); // ?
-        } else {alert('Dead!')};
-        break;
-      default:
-        alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
-        break;
-    };*/
-
-// The restart button
-/*$(document).ready(function(){
-  $('h3').click(function(){
-    pageNum = 0;
-    torpedoes = 0;
-    tailed = false;
-    wounded = false;
-    animal = '';
-    $('#bannerImg').attr('src', 'Assets/1(BlueDock).jpg');
-    $('h1').delay(500).fadeIn(500);
-    $('h3').fadeOut(500);
-    $('.disclaimer').fadeOut(500).fadeIn(500);
-    $('.bContainer').fadeOut(500).delay(500).fadeIn(2000);
-    $('#bannerDiv').fadeOut(500, function(){scrollTo(0,0);}).fadeIn(500);
-    $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/0(NoodleBar).jpg')}).fadeIn(1500);
-    window.setTimeout(function(){$('.bImg').attr('src','Assets/0(NoodleBar).jpg');}, 500);
-    $('#0').children('.bText').fadeOut(1).html('A boring old submarine manifest').fadeIn(2000);
-    $('#1').children('.bText').fadeOut(1).html('A harpoon and wetsuit catalog').fadeIn(2000);
-    $('#2').children('.bText').fadeOut(1).html('<br>Something ... classified').fadeIn(2000);
-    $('#para1').fadeOut(500, function(){$(this).html(para1_0); assignTooltips();}).fadeIn(1000);
-    $('#para2').fadeOut(500, function(){$(this).html(para2_0); assignTooltips();}).fadeIn(1000);
-  });
-});*/
-
-//Button B
-/* $(document).ready(function(){
-  $('#666').click(function(){
-    switch (pageNum) {
-      case 0:
-        pageNum = 2;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/2(LibertyRuin).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_2); assignTooltips();}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_2);}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/2(BlueEye).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>She\'d just slow you down').fadeIn(2000); // ?
-        $('#1').children('.bText').fadeOut(1).html('<br>Find out why she\'s so interested').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Why not? Let\s go now!').fadeIn(2000); // ?
-        break;
-      case 1:
-        pageNum = 5;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/5().jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_5);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_5); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/5().jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Stop to Investigate').fadeIn(2000); // 9
-        $('#1').children('.bText').fadeOut(1).html('<br>Keep going past them').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('Go around, as in way around').fadeIn(2000); // ?
-        break;
-      case 7:
-        pageNum = 8;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/8(BlueCorridor).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_8);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_8); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/8(BlueCorridor).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Sneak on board').fadeIn(2000); // ?
-        $('#1').children('.bText').fadeOut(1).html('<br>Take out the guards').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('Impersonate a high ranking official and board').fadeIn(2000); // ?
-        break;
-      default:
-        alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
-        break;
-    };
-  });
-});
-
-//Button G
-$(document).ready(function(){
-  $('#666').click(function(){
-    switch (pageNum) {
-      case 0:
-        pageNum = 3;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/3(Bartender).jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_3);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_3); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/3(Bartender).jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Claim ignorance').fadeIn(2000); // 7
-        $('#1').children('.bText').fadeOut(1).html('<br>Say what you know').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Send them on a goosechase').fadeIn(2000); // ?
-        break;
-      case 1:
-        pageNum = 6;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/6().jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_6);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_6); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/6().jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Outrun them').fadeIn(2000); // ?
-        $('#1').children('.bText').fadeOut(1).html('<br>Ram them, knock them out').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('<br>Send an SOS').fadeIn(2000); // ?
-        break;
-      case 10:
-        pageNum = 12;
-        damage = 1;
-        $('.mainImg').fadeOut(500, function(){$(this).attr('src', 'Assets/12().jpg')}).fadeIn(1500);
-        $('#para1').fadeOut(500, function(){$(this).html(para1_12);}).fadeIn(1000);
-        $('#para2').fadeOut(500, function(){$(this).html(para2_12); assignTooltips();}).fadeIn(1000);
-        window.setTimeout(function(){$('.bImg').attr('src','Assets/12().jpg');}, 500);
-        $('#0').children('.bText').fadeOut(1).html('<br>Full ahead!').fadeIn(2000); // ?
-        $('#1').children('.bText').fadeOut(1).html('Fire torpedo!').fadeIn(2000); // ?
-        $('#2').children('.bText').fadeOut(1).html('Outmaneuver it until it gets tired').fadeIn(2000); // ?
-        break;
-      default:
-        alert('Current pageNum is: ' + pageNum + ', currently there is no page progression');
-        break;
-    };
-  });
-}); */
+  page5: {
+    image: 'Assets/666.jpg',
+    buttons: {
+      9:{image:'Assets/666.jpg', txt:'Stop to investigate'},
+      666:{image:'Assets/666.jpg', txt:'Nope, let\'s go around it'}
+    },
+    para: para1_5,
+    variables: {}
+  },
+  page6: {
+    image: 'Assets/666.jpg',
+    buttons: {
+      666:{image:'Assets/666.jpg', txt:'Outrun them!'},
+      666:{image:'Assets/', txt:'Ram them!'},
+      666:{image:'Assets/', txt:'Send an SOS!'}
+    },
+    para: para1_6,
+    variables: {}
+  },
+  page7: {
+    image: 'Assets/7(Market).jpg',
+    buttons: {
+      666:{image:'Assets/7(ImprovisedElectrocute).jpg', txt:'Confront them'},
+      8:{image:'Assets/7(Market).jpg', txt:'Lose them'},
+    },
+    para: para1_7,
+    variables: {}
+  },
+  page8: {
+    image: 'Assets/8(BlueCorridor).jpg',
+    buttons: {
+      666:{image:'Assets/8(BlueCorridor).jpg', txt:'Sneak on board'},
+      666:{image:'Assets/8(BlueCorridor).jpg', txt:'Take out the guards'},
+      666:{image:'Assets/8(BlueCorridor).jpg', txt:'Impersonate a high ranking official and board'}
+    },
+    para: para1_8,
+    variables: {}
+  },
+  page9: {
+    image: 'Assets/9(IndustrialHab).jpg',
+    buttons: {
+      10:{image:'Assets/9(IndustrialHab).jpg', txt:'Dock at the empty moor'},
+      666:{image:'Assets/9(IndustrialHab).jpg', txt:'Nope nope nope, you\'re leaving'}
+    },
+    para: para1_9,
+    variables: {}
+  },
+  page10: {
+    image: 'Assets/10(Cryo).jpg',
+    buttons: {
+      11:{image:'Assets/9(IndustrialHab).jpg', txt:'Time for some light reading'},
+      12:{image:'Assets/9(IndustrialHab).jpg', txt:'Have a look around first'}
+    },
+    para: para1_10,
+    variables: {animal: 'piglets'}
+  },
+  page11: {
+    image: 'Assets/666.jpg',
+    buttons: {
+      666:{image:'Assets/666.jpg', txt:'Try and escape!'},
+      666:{image:'Assets/666.jpg', txt:'Fire torpedo!'}
+    },
+    para: para1_11,
+    variables: { serumData: 1, wounded: true, damage: 1 }
+  },
+  page12: {
+    image: 'Assets/666.jpg',
+    buttons: {
+      666:{image:'Assets/666.jpg', txt:'Try and escape!'},
+      666:{image:'Assets/666.jpg', txt:'Fire torpedo!'}
+    },
+    para: para1_12,
+    variables: { damage: 1 }
+  }
+};
