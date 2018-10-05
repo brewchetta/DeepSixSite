@@ -1,11 +1,56 @@
-// Changes different attributes so I know the scripts are working
+// Initial load-up
 $(document).ready(function(){
-  $('#bannerImg').attr('src', 'Assets/1(BlueDock).jpg');
+  fullscreenBind();
+  loadPage(pages['page0']);
   $('#tooltip').fadeOut(1);
-  $('h3').fadeOut(1);
   assignTooltips();
   bindButtons();
+  restartBind();
 });
+
+// Restart function
+function restartBind(){
+  $('#restart').click(function(){
+    pageNum = 0;
+    loadPage(pages['page0']);
+  });
+}
+
+// Fullscreen function
+let screenFull = false;
+
+function fullscreenBind(){
+  $('#fullscreen').click(function fullscreen(){
+    var docElm = document.documentElement;
+    screenFull = true;
+    if (docElm.requestFullscreen) {
+      docElm.requestFullscreen();
+    } else if (docElm.msRequestFullscreen) {
+      docElm = document.body;
+      docElm.msRequestFullscreen();
+    } else if (docElm.mozRequestFullScreen) {
+      docElm.mozRequestFullScreen();
+    } else if (docElm.webkitRequestFullScreen) {
+      docElm.webkitRequestFullScreen();
+    }
+  })
+  $('#exitFullscreen').click(function exitFullscreen(){
+    screenFull = false;
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+      document.msExitFullscreen();
+    }
+  })
+}
+
+function fullscreen(){
+
+}
 
 // Variables that might affect the story are stored here
 // (Possibly change to an object to condense it?)
@@ -17,7 +62,7 @@ var damage = 0;
 var wounded = false;
 var serumData = 0;
 
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 // Load Page Functions
 
 function loadPage(page) {
@@ -29,7 +74,7 @@ function loadPage(page) {
 };
 
 function loadButtons(buttons) {
-  $('.bContainer').fadeOut(500).delay(1000).fadeIn(2000);
+  $('.bContainer').fadeOut(500).delay(250).fadeIn(1500);
   window.setTimeout(function(){
     $('.bContainer').empty();
     for (var key in buttons) {
@@ -155,7 +200,7 @@ const pages = {
       2:{image:'Assets/0(NoodleBar).jpg', txt:'A harpoon and wetsuit catalog'},
       3:{image:'Assets/0(NoodleBar).jpg', txt:'Something ... classified'}
     },
-    para: '', // The text that will be displayed
+    para: para1_0, // The text that will be displayed
     variables: {} // How variables will change
   },
   page1: {
