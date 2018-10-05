@@ -1,14 +1,4 @@
-/* New plan to refactor this work:
-1. Create a number of smaller functional chunks that can be called in a main change page function.
-2. Reformat pages so on normal monitors and tablets they're a single page.
-3. Reformat buttons so it adds and subtracts buttons as needed
-4. Have only one paragraphs chunk per page. Make larger 'pages' without choices easily clicked through
-5. Build a map so I can easily see where different pages lead
-6. Build a new intro splash page
-7. Cookies? Need to create some sort of save support and load system
-*/
-
-// This changes different attributes so I know the page has loaded
+// Changes different attributes so I know the scripts are working
 $(document).ready(function(){
   $('#bannerImg').attr('src', 'Assets/1(BlueDock).jpg');
   $('#tooltip').fadeOut(1);
@@ -37,7 +27,7 @@ function loadPage(page) {
   loadTransition();
   $('.mainImg').fadeOut(500, function(){$(this).attr('src', page.image)}).fadeIn(1500);
   $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).fadeIn(1000);
-  $('#para2').fadeOut(500, function(){$(this).html(para2_1); assignTooltips();}).fadeIn(1000);
+  $('#para2').fadeOut(500, function(){$(this).html('TO DO: Pack and crack your text like an NC Republican!');}).fadeIn(1000);
   loadButtons(page.buttons);
 };
 
