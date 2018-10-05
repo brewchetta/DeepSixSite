@@ -51,48 +51,23 @@ body {
   border-radius: 10px;
 }
 
-.bContinue {
-  width: 100%;
-  border: 4px solid #181a3d;
-  border-radius: 4px;
-  display: inline-block;
-  margin: 10px;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.bContinue>p {
-  position: relative;
-  top: 10px;
-  left: 0;
-  margin: auto;
-  color: white;
-  text-align: center;
-  font-size: 1.5em;
-}
-
 .bBox>p {
   position: relative;
-  top: 10px;
+  top: 0;
   left: 0;
-  margin: auto;
+  margin: 0;
+  padding-top: 10px;
   color: white;
   text-align: center;
   width: 100%;
+  height: 100%;
+  background: black;
+  transition: opacity 0.5s;
+  transition-timing-function: linear;
 }
 
-.bBox>img {
-  position: relative;
-  height: 100px;
-  top: -57px;
+.bBox>p:hover {
   opacity: 0;
-  z-index: 1;
-}
-
-.bBox>img:hover {
-  transition: 0.5s ease-in-out;
-  opacity: 1;
 }
 
 .bBox {
@@ -104,6 +79,9 @@ body {
   width: 100px;
   overflow: hidden;
   cursor: pointer;
+  background: url('Assets/0(NoodleBar).jpg') no-repeat;
+  background-size: auto 100%;
+  background-position: center;
 }
 
 .bContainer {

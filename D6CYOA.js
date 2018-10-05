@@ -12,13 +12,10 @@ $(document).ready(function(){
 var pageNum = 0;
 var torpedoes = 0;
 var tailed = false;
-var animal = '';
+var animal = 'solitary thoughts';
 var damage = 0;
 var wounded = false;
 var serumData = 0;
-
-
-
 
 ////////////////////////////////////////////////////////////
 // Load Page Functions
@@ -38,9 +35,9 @@ function loadButtons(buttons) {
     for (var key in buttons) {
       var bttn = '<div class="bBox newButton"><p></p><img src=""></div>';
       $('.bContainer').append(bttn);
-      $('.newButton').children('img').attr('src', buttons[key].image);
       $('.newButton').children('p').text(buttons[key].txt);
-      $('.newButton').attr('id', key)
+      $('.newButton').attr('id', key);
+      $('.newButton').css('background-image', `url('${buttons[key].image}')`);
       $('.newButton').removeClass('newButton')
     };
     bindButtons();
@@ -62,7 +59,7 @@ function bindButtons(){
   });
 }
 
-// These tooltips are bound to an element's id
+// Tooltips are bound depending on an element's id ////////////////////////////
 const tooltips = {
   signLang: 'ASL is a common language among divers in the Atlantic who can\'t afford JANUS helmet communicators',
   kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
@@ -79,8 +76,7 @@ const tooltips = {
   deepSix: 'The dangerous stretches of ocean between ports of call',
   sixsixsix: 'People who worship the devil as their apocalyptic saviour'
 };
-
-// This must be called on every new page to bind tooltips
+// This must be called on every new page load to bind tooltips
 function assignTooltips() {
   $('.tip').mouseenter(
     function(e){
@@ -94,7 +90,7 @@ function assignTooltips() {
 };
 
 
-// Narrative paragraph content goes here
+// Narrative paragraph content goes here //////////////////////////////////
 // Content is ordered as paragraph number and then page number
 
 const para1_0 = 'A woman slides onto the stool next to you. She\'s buoyant, energetic, dangerously cheerful. It takes a single look to size her up: she\'s not wearing a wetsuit but instead a short floral-print dress and outlandish sun hat. She\'s a <span id=nub class=tip>nub</span>.<br><br>She\'s sized you up in the same time.';
@@ -153,11 +149,11 @@ const para2_12 = para2_11;
 // The page numbers MUST be in order of their index or everything will be out of sync!!!
 const pages = {
   page0: { // This is the page number, correlated with index number
-    image: '', // This will be the main image
+    image: 'Assets/0(NoodleBar).jpg', // This will be the main image
     buttons: { // Adds buttons, their id determines which page they lead to
-      1:{image:'Assets/', txt:''},
-      2:{image:'Assets/', txt:''},
-      3:{image:'Assets/', txt:''}
+      1:{image:'Assets/0(NoodleBar).jpg', txt:'A boring old submarine manifest'},
+      2:{image:'Assets/0(NoodleBar).jpg', txt:'A harpoon and wetsuit catalog'},
+      3:{image:'Assets/0(NoodleBar).jpg', txt:'Something ... classified'}
     },
     para: '', // The text that will be displayed
     variables: {} // How variables will change
