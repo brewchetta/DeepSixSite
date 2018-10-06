@@ -7,19 +7,21 @@ html, body {
 body {
  box-sizing: border-box;
  background:linear-gradient(#010323, #010107);
- padding-top: 10px;
 /*  border: 1px solid black;*/
 }
 
-.mainImg {
-  display: block;
-  margin: auto;
-  max-width: 80%;
-  max-height: 400px;
-  overflow: hidden;
-  border: 8px solid #181a3d;
-  border-radius: 10px;
+#main {
+  padding-top: 10px;
+  background-image: url('Assets/0(NoodleBar).jpg');
+  background-size: cover;
+  min-height: 590px;
 }
+
+/* At some point I'll need to recalibrate this so it works across devices
+for now, it works on my screen which is good enough! */
+html:-moz-full-screen #main{min-height: 756px;}
+html:-webkit-full-screen #main{min-height: 756px;}
+html:fullscreen #main{min-height: 756px;}
 
 .bBox>p {
   position: relative;
@@ -55,42 +57,38 @@ body {
 }
 
 .bContainer {
-  margin: auto;
-  max-width: 400px;
-  padding: auto;
+  display: inline-block;
+  width: 30%;
+  clear: both;
 }
 
 .pText {
    color:#ceb600;
-   background: rgba(0,0,0,0);
-   display: block;
-   margin:auto;
+   background: rgba(0,0,0,0.9);
+   display: inline-block;
    margin-top: 10px;
    margin-bottom: 10px;
-   width: 90%;
+   width: 80%;
    max-width: 800px;
    padding: 6px;
    border: 4px solid #181a3d;
    border-radius: 5px;
    font-family: Georgia, serif;
-   clear:both;
-}
-
-h1 {
-   font-size: 50px;
-   font: Georgia, serif;
-   text-align: center;
-   text-transform: uppercase;
-   margin: auto;
-   display: box;
+   clear: both;
+   overflow: hidden;
 }
 
 .disclaimer {
-  color: #002080;
-  background: rgba(0,0,0,0);
-  display: block;
-  margin-top: 50px;
+  position: absolute;
+  color: white;
   margin-bottom: 10px;
+  border-top: solid white 2px;
+  border-bottom: solid white 1px;
+  display: inline-block;
+  padding: 0.5em;
+  background: rgba(0,0,0,0.6);
+  clear: both;
+  bottom: 0.5em;
 }
 
 .tip {

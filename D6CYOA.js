@@ -16,9 +16,7 @@ function restartBind(){
   });
 }
 
-// Fullscreen function
-let screenFull = false;
-
+// Fullscreen Functions
 function fullscreenBind(){
   $('#fullscreen').click(function fullscreen(){
     var docElm = document.documentElement;
@@ -48,10 +46,6 @@ function fullscreenBind(){
   })
 }
 
-function fullscreen(){
-
-}
-
 // Variables that might affect the story are stored here
 // (Possibly change to an object to condense it?)
 var pageNum = 0;
@@ -67,14 +61,13 @@ var serumData = 0;
 
 function loadPage(page) {
   loadTransition();
-  $('.mainImg').fadeOut(500, function(){$(this).attr('src', page.image)}).fadeIn(1500);
-  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).fadeIn(1000);
-  $('#para2').fadeOut(500, function(){$(this).html('TO DO: Pack and crack your text like an NC Republican!');}).fadeIn(1000);
+  $('#main').fadeOut(500, function(){$(this).css('background-image', `url('${page.image}')`)}).fadeIn(500);
+  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).delay(500).fadeIn(1000);
   loadButtons(page.buttons);
 };
 
 function loadButtons(buttons) {
-  $('.bContainer').fadeOut(500).delay(250).fadeIn(1500);
+  $('.bContainer').fadeOut(500).delay(1000).fadeIn(1500);
   window.setTimeout(function(){
     $('.bContainer').empty();
     for (var key in buttons) {
@@ -89,11 +82,8 @@ function loadButtons(buttons) {
   }, 500)
 }
 
-//TO DO: consolidate elements into a single div; fadeOut that div's children
 function loadTransition(){
   $('#bannerDiv').fadeOut(500, function(){scrollTo(0,0);}).fadeIn(500);
-  $('h3').fadeOut(500).delay(500).fadeIn(2000);
-  $('h1').fadeOut(500);
   $('.disclaimer').fadeOut(500).fadeIn(500);
 }
 
@@ -138,9 +128,7 @@ function assignTooltips() {
 // Narrative paragraph content goes here //////////////////////////////////
 // Content is ordered as paragraph number and then page number
 
-const para1_0 = 'A woman slides onto the stool next to you. She\'s buoyant, energetic, dangerously cheerful. It takes a single look to size her up: she\'s not wearing a wetsuit but instead a short floral-print dress and outlandish sun hat. She\'s a <span id=nub class=tip>nub</span>.<br><br>She\'s sized you up in the same time.';
-
-const para2_0 = '\"What\'s that?\" she asks. She wants to know about the tablet in front of you, the one right next to your bowl of hot noodles. The bartender hands this young woman a drink, a shirley temple you\'d guess, and the woman shrugs and carries the drink to a nearby bubble window.<br><br>Outside it you can see the ocean particulate dance like moths in the dim tavern light. Beyond that is the darkness. What mariners call the <span id=deepSix class=tip>Deep Six.</span><br><br>You turn back to your tablet. What were you looking at again?';
+const para1_0 = 'A woman slides onto the stool next to you. She\'s buoyant, energetic, dangerously cheerful. It takes a single look to size her up: she\'s not wearing a wetsuit but instead a short floral-print dress and outlandish sun hat. She\'s a <span id=nub class=tip>nub</span>.<br><br>She\'s sized you up in the same time.<br><br>\"What\'s that?\" she asks. She wants to know about the tablet in front of you, the one right next to your bowl of hot noodles. The bartender hands this young woman a drink, a shirley temple you\'d guess, and the woman shrugs and carries the drink to a nearby bubble window.<br><br>Outside it you can see the ocean particulate dance like moths in the dim tavern light. Beyond that is the darkness. What mariners call the <span id=deepSix class=tip>Deep Six.</span><br><br>You turn back to your tablet. What were you looking at again?';
 
 const para1_1 = "Maybe it's the years that have gotten to you, maybe it's the shit quality of the booze around here. Either way, you're tired. At one point this bar carried real dirt grown food. Now it's all <span class='tip' id='hydro'>hydro</span>. You're old enough, you can tell the difference. These noodles sure weren't made from dirt grown rice.</br></br>But what's to be done?";
 
