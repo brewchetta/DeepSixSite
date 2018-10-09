@@ -62,12 +62,13 @@ var serumData = 0;
 function loadPage(page) {
   loadTransition();
   $('#main').fadeOut(500, function(){$(this).css('background-image', `url('${page.image}')`)}).fadeIn(500);
-  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).delay(500).fadeIn(1000);
+  $('footer').fadeOut(500).delay(1000).fadeIn(500);
+  $('#para1').fadeOut(500, function(){$(this).html(page.para); assignTooltips();}).delay(500).fadeIn(1500);
   loadButtons(page.buttons);
 };
 
 function loadButtons(buttons) {
-  $('.bContainer').fadeOut(500).delay(1000).fadeIn(1500);
+  $('.bContainer').fadeOut(500).delay(500).fadeIn(1500);
   window.setTimeout(function(){
     $('.bContainer').empty();
     for (var key in buttons) {

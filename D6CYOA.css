@@ -54,12 +54,12 @@ html:fullscreen #main{min-height: 756px;}
   background: url('Assets/0(NoodleBar).jpg') no-repeat;
   background-size: auto 100%;
   background-position: center;
+  float: left;
 }
 
 .bContainer {
   display: inline-block;
   width: 30%;
-  clear: both;
 }
 
 .pText {
@@ -74,7 +74,7 @@ html:fullscreen #main{min-height: 756px;}
    border: 4px solid #181a3d;
    border-radius: 5px;
    font-family: Georgia, serif;
-   clear: both;
+   float: left;
    overflow: hidden;
 }
 
@@ -87,7 +87,6 @@ html:fullscreen #main{min-height: 756px;}
   display: inline-block;
   padding: 0.5em;
   background: rgba(0,0,0,0.6);
-  clear: both;
   bottom: 0.5em;
 }
 
