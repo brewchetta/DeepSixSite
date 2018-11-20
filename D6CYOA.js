@@ -82,8 +82,8 @@ function resetVars() {
   console.log(`%ctorpedoes set to 0`, 'color: orange')
   window.localStorage.setItem('tailed', false)
   console.log(`%ctailed set to false`, 'color: orange')
-  window.localStorage.setItem('animal', 'solitary thoughts')
-  console.log(`%canimal set to 'solitary thoughts'`, 'color: orange')
+  window.localStorage.setItem('animal', 'nothing')
+  console.log(`%canimal set to 'nothing'`, 'color: orange')
   window.localStorage.setItem('damage', 0)
   console.log(`%cdamage set to 0`, 'color: orange')
   window.localStorage.setItem('wounded', false)
@@ -124,6 +124,7 @@ function varChange(page) {
   setPage(page['num'])
   setTorps(pageVars)
   setTailed(pageVars)
+  setAnimal(pageVars)
 }
 
 function setPage(num) {
@@ -146,6 +147,19 @@ function setTailed(pageVars) {
     const t = pageVars['tailed']
     window.localStorage.setItem('tailed', `${t}`)
     console.log(`%cTail = ${t}`, 'color: orange')
+  }
+}
+
+function setAnimal(pageVars) {
+  if (pageVars['animal']) {
+    const t = pageVars['animal']
+    const u = window.localStorage.getItem('animal')
+    if (u === 'nothing') {
+      window.localStorage.setItem('animal', `${t}`)
+      console.log(`%cA ${t} is now following as your animal`, 'color: orange')
+    } else {
+      console.log(`%cCouldn't adopt a ${t} since you already have a ${u}, mama says so`, 'color: orange')
+    }
   }
 }
 
@@ -324,7 +338,7 @@ const pages = {
     },
     num: 10,
     para: para10,
-    variables: { animal: 'piglets' }
+    variables: { animal: 'brood of piglets' }
   },
   page11: {
     image: 'Assets/666.jpg',
@@ -354,7 +368,7 @@ const pages = {
     },
     num: 13,
     para: para13,
-    variables: { animal: 'piglets' }
+    variables: { animal: 'brood of piglets' }
   }
 }
 
