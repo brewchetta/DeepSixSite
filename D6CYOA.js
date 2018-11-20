@@ -139,7 +139,11 @@ function setTorps(pageVars) {
   if (pageVars['torpedoes']) {
     let t = window.localStorage.getItem('torpedoes')
     t = parseInt(t)
-    (t >= pageVars['torpedoes']) ? t += pageVars['torpedoes'] : alert('Torpedoes negative; TODO: fix this!')
+    debugger
+    if (pageVars['torpedoes'] < 0 && t <= pageVars['torpedoes']) {
+      alert('Torpedoes negative; TODO: fix this!')
+    }
+    t += pageVars['torpedoes']
     window.localStorage.setItem('torpedoes', `${t}`)
     console.log(`%cTorpedoes += ${t}`, 'color: orange')
   }
