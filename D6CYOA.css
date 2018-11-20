@@ -7,13 +7,15 @@ html, body {
 body {
  box-sizing: border-box;
  background:linear-gradient(#010323, #010107);
-/*  border: 1px solid black;*/
+/*  border: 1px solid red;*/
+/* Kept the above around for fine tuning placement */
 }
 
 #main {
   padding-top: 10px;
   background-size: cover;
-  min-height: 590px;
+  height: 10px;
+  /* min-height: 590px; */
 }
 
 /* At some point I'll need to recalibrate this so it works across devices

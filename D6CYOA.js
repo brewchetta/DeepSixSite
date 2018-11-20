@@ -3,6 +3,7 @@
 console.log('%cLoading main script', 'color: blue')
 
 $(document).ready(function () {
+  resizeWindow()
   fullscreenBind()
   initLoadPage(pages['page0'])
   $('#tooltip').fadeOut(1)
@@ -11,11 +12,18 @@ $(document).ready(function () {
   restartBind()
 })
 
+// Resets window height on main div
+function resizeWindow () {
+  let winHeight = window.innerHeight
+  $('#main').css('height', `${winHeight}`)
+}
+
 function initLoadPage (page) {
   $('#bannerDiv').fadeOut(1, function () { scrollTo(0, 0) }).fadeIn(1500)
   $('.disclaimer').fadeOut(1).fadeIn(1500)
-  $('#main').fadeOut(1, function () { $(this).css('background-image', `url('${page.image}')`) }).css('min-height', 'window.innerHeight;').fadeIn(1500)
+  $('#main').fadeOut(1, function () { $(this).css('background-image', `url('${page.image}')`) }).fadeIn(1500)
   $('footer').fadeOut(1).delay(1000).fadeIn(3000)
+  resizeWindow()
   $('#para1').fadeOut(1, function () { $(this).html(page.para); assignTooltips() }).delay(500).fadeIn(3000)
   loadButtons(page.buttons)
 };
@@ -116,7 +124,7 @@ function bindButtons () {
   })
 }
 
-// Tooltips are bound depending on an element's id ////////////////////////////
+// Tooltips are bound by locating an element's id ////////////////////////////
 const tooltips = {
   signLang: 'ASL is a common language among divers in the Atlantic who can\'t afford JANUS helmet communicators',
   kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
@@ -134,6 +142,7 @@ const tooltips = {
   sixsixsix: 'People who worship the devil as their apocalyptic saviour',
   aGang: 'Submarine mechanics, formally known as machinist\'s mates'
 }
+
 // This must be called on every new page load to bind tooltips
 function assignTooltips () {
   $('.tip').mouseenter(
