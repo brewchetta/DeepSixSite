@@ -125,6 +125,9 @@ function varChange(page) {
   setTorps(pageVars)
   setTailed(pageVars)
   setAnimal(pageVars)
+  setDmg(pageVars)
+  setWounded(pageVars)
+  setSerum(pageVars)
 }
 
 function setPage(num) {
@@ -136,7 +139,7 @@ function setTorps(pageVars) {
   if (pageVars['torpedoes']) {
     let t = window.localStorage.getItem('torpedoes')
     t = parseInt(t)
-    t += pageVars['torpedoes']
+    (t >= pageVars['torpedoes']) ? t += pageVars['torpedoes'] : alert('Torpedoes negative; TODO: fix this!')
     window.localStorage.setItem('torpedoes', `${t}`)
     console.log(`%cTorpedoes += ${t}`, 'color: orange')
   }
@@ -162,6 +165,41 @@ function setAnimal(pageVars) {
     }
   }
 }
+
+function setDmg(pageVars) {
+  if (pageVars['damage']) {
+    let t = window.localStorage.getItem('damage')
+    t = parseInt(t)
+    t += pageVars['damage']
+    if (t < 0) { t = 0 } // Can't be below 0
+    window.localStorage.setItem('damage', `${t}`)
+    console.log(`%cDamage has changed to ${t}`, 'color: orange')
+  }
+}
+
+function setWounded(pageVars) {
+  if (pageVars['wounded']) {
+    const t = pageVars['wounded']
+    if (t === false && t === window.localStorage.getItem('wounded')) {
+      alert('Character dead; TODO: figure out death logic')
+    } else {
+      window.localStorage.setItem('wounded', `${t}`)
+      console.log(`%cWounded = ${t}`, 'color: orange')
+    }
+  }
+}
+
+function setSerum(pageVars) {
+  if (pageVars['serumData']) {
+    let t = window.localStorage.getItem('serumData')
+    t = parseInt(t)
+    t += pageVars['serumData']
+    if (t < 0) { t = 0 } // Can't be below 0
+    window.localStorage.setItem('serumData', `${t}`)
+    console.log(`%cSerum has changed to ${t}`, 'color: orange')
+  }
+}
+// /// End localStorage functions /// //
 
 function loadButtons(buttons) {
   $('.bContainer').fadeOut(500).delay(500).fadeIn(1500)
