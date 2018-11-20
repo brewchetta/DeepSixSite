@@ -3,6 +3,7 @@
 console.log('%cLoading main script', 'color: blue')
 
 $(document).ready(function() {
+  if (!window.localStorage.getItem('pageNum')) { resetVars() }
   resizeWindow()
   fullscreenBind()
   initLoadPage(pages['page0'])
@@ -79,17 +80,36 @@ function fullscreenBind() {
 }
 
 // Variables that might affect the story are stored here
-// (Possibly change to an object to condense it?)
-
-let variables = {
-  pageNum: 0,
-  torpedoes: 0,
-  tailed: false,
-  animal: 'solitary thoughts',
-  damage: 0,
-  wounded: false,
-  serumData: 0
+function resetVars() {
+  window.localStorage.setItem('pageNum', 0)
+  console.log(`%cpageNum set to 0`, 'color: orange')
+  window.localStorage.setItem('torpedoes', 0)
+  console.log(`%ctorpedoes set to 0`, 'color: orange')
+  window.localStorage.setItem('tailed', false)
+  console.log(`%ctailed set to false`, 'color: orange')
+  window.localStorage.setItem('animal', 'solitary thoughts')
+  console.log(`%canimal set to 'solitary thoughts'`, 'color: orange')
+  window.localStorage.setItem('damage', 0)
+  console.log(`%cdamage set to 0`, 'color: orange')
+  window.localStorage.setItem('wounded', false)
+  console.log(`%cwounded set to false`, 'color: orange')
+  window.localStorage.setItem('serumData', 0)
+  console.log(`%cserumData set to 0`, 'color: orange')
 }
+
+// let variables = {
+//   pageNum: 0,
+//   torpedoes: 0,
+//   tailed: false,
+//   animal: 'solitary thoughts',
+//   damage: 0,
+//   wounded: false,
+//   serumData: 0
+// }
+
+//localStorage options
+// window.localStorage.setItem('myCat', 'Tom')
+// alert(window.localStorage.getItem('myCat'))
 
 // //////////////////////////////////////////////////////////////////
 // Load Page Functions

@@ -101,7 +101,7 @@ html:fullscreen #main{min-height: 756px;}
    border: 4px solid #181a3d;
    border-radius: 5px;
    float: left;
-   overflow: hidden;
+   overflow: scroll;
 }
 
 .disclaimer {
