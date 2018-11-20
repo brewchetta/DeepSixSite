@@ -2,7 +2,7 @@
 
 console.log('%cLoading main script', 'color: blue')
 
-$(document).ready(function () {
+$(document).ready(function() {
   resizeWindow()
   fullscreenBind()
   initLoadPage(pages['page0'])
@@ -13,18 +13,22 @@ $(document).ready(function () {
 })
 
 // Resets window height on main div
-function resizeWindow () {
-  let winHeight = window.innerHeight
+function resizeWindow() {
+  const winHeight = window.innerHeight
   $('#main').css('height', `${winHeight}`)
 }
 
 function initLoadPage (page) {
-  $('#bannerDiv').fadeOut(1, function () { scrollTo(0, 0) }).fadeIn(1500)
+  $('#bannerDiv').fadeOut(1, function() { scrollTo(0, 0) }).fadeIn(1500)
   $('.disclaimer').fadeOut(1).fadeIn(1500)
-  $('#main').fadeOut(1, function () { $(this).css('background-image', `url('${page.image}')`) }).fadeIn(1500)
+  $('#main').fadeOut(1, function() {
+    $(this).css('background-image', `url('${page.image}')`)
+  }).fadeIn(1500)
   $('footer').fadeOut(1).delay(1000).fadeIn(3000)
   resizeWindow()
-  $('#para1').fadeOut(1, function () { $(this).html(page.para); assignTooltips() }).delay(500).fadeIn(3000)
+  $('#para1').fadeOut(1, function() {
+    $(this).html(page.para); assignTooltips()
+  }).delay(500).fadeIn(3000)
   loadButtons(page.buttons)
 };
 
@@ -43,7 +47,7 @@ function restartBind () {
 }
 
 // Fullscreen Functions
-function fullscreenBind () {
+function fullscreenBind() {
   $('#fullscreen').click(function fullscreen () {
     var docElm = document.documentElement
     screenFull = true
@@ -58,7 +62,7 @@ function fullscreenBind () {
       docElm.webkitRequestFullScreen()
     }
   })
-  $('#exitFullscreen').click(function exitFullscreen () {
+  $('#exitFullscreen').click(function exitFullscreen() {
     screenFull = false
     if (document.exitFullscreen) {
       document.exitFullscreen()
@@ -88,19 +92,23 @@ let variables = {
 // //////////////////////////////////////////////////////////////////
 // Load Page Functions
 
-function loadPage (page) {
+function loadPage(page) {
   loadTransition()
-  $('#main').fadeOut(500, function () { $(this).css('background-image', `url('${page.image}')`) }).fadeIn(500)
+  $('#main').fadeOut(500, function() {
+    $(this).css('background-image', `url('${page.image}')`)
+  }).fadeIn(500)
   $('footer').fadeOut(500).delay(1000).fadeIn(500)
-  $('#para1').fadeOut(500, function () { $(this).html(page.para); assignTooltips() }).delay(500).fadeIn(1500)
+  $('#para1').fadeOut(500, function() {
+    $(this).html(page.para); assignTooltips()
+  }).delay(500).fadeIn(1500)
   loadButtons(page.buttons)
 };
 
-function loadButtons (buttons) {
+function loadButtons(buttons) {
   $('.bContainer').fadeOut(500).delay(500).fadeIn(1500)
-  window.setTimeout(function () {
+  window.setTimeout(function() {
     $('.bContainer').empty()
-    for (var key in buttons) {
+    for (const key in buttons) {
       var bttn = '<div class="bBox newButton"><p></p><img src=""></div>'
       $('.bContainer').append(bttn)
       $('.newButton').children('p').text(buttons[key].txt)
@@ -112,13 +120,13 @@ function loadButtons (buttons) {
   }, 500)
 }
 
-function loadTransition () {
-  $('#bannerDiv').fadeOut(500, function () { scrollTo(0, 0) }).fadeIn(500)
+function loadTransition() {
+  $('#bannerDiv').fadeOut(500, function() { scrollTo(0, 0) }).fadeIn(500)
   $('.disclaimer').fadeOut(500).fadeIn(500)
 }
 
-function bindButtons () {
-  $('.bBox').click(function () {
+function bindButtons() {
+  $('.bBox').click(function() {
     variables.pageNum = Number(this.id)
     loadPage(pages['page' + this.id])
   })
@@ -144,14 +152,14 @@ const tooltips = {
 }
 
 // This must be called on every new page load to bind tooltips
-function assignTooltips () {
+function assignTooltips() {
   $('.tip').mouseenter(
-    function (e) {
+    function(e) {
       var mouseX = e.pageX + 5
       var mouseY = e.pageY
       $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text(tooltips[this.id])
     })
-  $('.tip').mouseleave(function () {
+  $('.tip').mouseleave(function() {
     $('#tooltip').fadeToggle(500)
   })
 };
