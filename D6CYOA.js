@@ -6,7 +6,8 @@ $(document).ready(function() {
   if (!window.localStorage.getItem('pageNum')) { resetVars() }
   resizeWindow()
   fullscreenBind()
-  initLoadPage(pages['page0'])
+  const pg = window.localStorage.getItem('pageNum')
+  initLoadPage(pages[`page${pg}`])
   $('#tooltip').fadeOut(1)
   assignTooltips()
   bindButtons()
@@ -91,7 +92,6 @@ function resetVars() {
   console.log(`%cserumData set to 0`, 'color: orange')
 }
 
-// let variables = {
 //   pageNum: 0,
 //   torpedoes: 0,
 //   tailed: false,
@@ -99,17 +99,12 @@ function resetVars() {
 //   damage: 0,
 //   wounded: false,
 //   serumData: 0
-// }
-
-//localStorage options
-// window.localStorage.setItem('myCat', 'Tom')
-// alert(window.localStorage.getItem('myCat'))
 
 // //////////////////////////////////////////////////////////////////
 // Load Page Functions
 
 function loadPage(page) {
-  console.log(`%c${page} loading`, 'color: blue')
+  console.log(`%cPage loading`, 'color: blue')
   loadTransition()
   $('#main').fadeOut(500, function() {
     $(this).css('background-image', `url('${page.image}')`)
@@ -118,9 +113,41 @@ function loadPage(page) {
   $('#para').fadeOut(500, function() {
     $(this).html(page.para); assignTooltips()
   }).delay(500).fadeIn(1500)
+  varChange(page)
   loadButtons(page.buttons)
   console.log(`%cPage loaded`, 'color: purple')
-};
+}
+
+// Changes variables in localStorage, called in loadPage
+function varChange(page) {
+  const pageVars = page.variables
+  setPage(page['num'])
+  setTorps(pageVars)
+  setTailed(pageVars)
+}
+
+function setPage(num) {
+  window.localStorage.setItem('pageNum', `${num}`)
+  console.log(`%cpageNum is now ${num}`, 'color: orange')
+}
+
+function setTorps(pageVars) {
+  if (pageVars['torpedoes']) {
+    let t = window.localStorage.getItem('torpedoes')
+    t = parseInt(t)
+    t += pageVars['torpedoes']
+    window.localStorage.setItem('torpedoes', `${t}`)
+    console.log(`%cTorpedoes += ${t}`, 'color: orange')
+  }
+}
+
+function setTailed(pageVars) {
+  if (pageVars['tailed']) {
+    const t = pageVars['tailed']
+    window.localStorage.setItem('tailed', `${t}`)
+    console.log(`%cTail = ${t}`, 'color: orange')
+  }
+}
 
 function loadButtons(buttons) {
   $('.bContainer').fadeOut(500).delay(500).fadeIn(1500)
@@ -193,6 +220,7 @@ const pages = {
       2: { image: 'Assets/0(NoodleBar).jpg', txt: 'A harpoon and wetsuit catalog' },
       3: { image: 'Assets/0(NoodleBar).jpg', txt: 'Something ... classified' }
     },
+    num: 0,
     para: para0, // The text that will be displayed
     variables: {} // How variables will change
   },
@@ -203,6 +231,7 @@ const pages = {
       5: { image: 'Assets/1(GoatSkull).jpg', txt: 'Keep to your schedule' },
       6: { image: 'Assets/1(GoatSkull).jpg', txt: 'You\'ll wait, but only if you get a discount' }
     },
+    num: 1,
     para: para1,
     variables: {}
   },
@@ -212,6 +241,7 @@ const pages = {
       666: { image: 'Assets/2(BlueEye).jpg', txt: 'Why not? Let\'s find a sub headed that way!' },
       667: { image: 'Assets/2(BlueEye).jpg', txt: 'She\'d just slow you down' }
     },
+    num: 2,
     para: para2,
     variables: {}
   },
@@ -221,6 +251,7 @@ const pages = {
       7: { image: 'Assets/3(Bartender).jpg', txt: 'Claim ignorance' },
       666: { image: 'Assets/3(Bartender).jpg', txt: 'Tell them what you know' }
     },
+    num: 3,
     para: para3,
     variables: {}
   },
@@ -230,6 +261,7 @@ const pages = {
       9: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Stop to help' },
       666: { image: 'Assets/1(GoatSkull).jpg', txt: 'Let\'s go way around' },
     },
+    num: 4,
     para: para4,
     variables: { torpedoes: 4 }
   },
@@ -239,6 +271,7 @@ const pages = {
       9: { image: 'Assets/666.jpg', txt: 'Stop to investigate' },
       666: { image: 'Assets/666.jpg', txt: 'Nope, let\'s go around it' }
     },
+    num: 5,
     para: para5,
     variables: {}
   },
@@ -249,6 +282,7 @@ const pages = {
       666: { image: 'Assets/', txt: 'Ram them!' },
       666: { image: 'Assets/', txt: 'Send an SOS!' }
     },
+    num: 6,
     para: para6,
     variables: {}
   },
@@ -258,6 +292,7 @@ const pages = {
       666: { image: 'Assets/7(ImprovisedElectrocute).jpg', txt: 'Confront them' },
       8: { image: 'Assets/7(Market).jpg', txt: 'Lose them' }
     },
+    num: 7,
     para: para7,
     variables: {}
   },
@@ -268,6 +303,7 @@ const pages = {
       667: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Take out the guards' },
       668: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Impersonate a high ranking official and board' }
     },
+    num: 8,
     para: para8,
     variables: {}
   },
@@ -277,6 +313,7 @@ const pages = {
       10: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Dock at the empty moor' },
       666: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Nope nope nope, you\'re leaving' }
     },
+    num: 9,
     para: para9,
     variables: {}
   },
@@ -285,6 +322,7 @@ const pages = {
     buttons: {
       13: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Continue' }
     },
+    num: 10,
     para: para10,
     variables: { animal: 'piglets' }
   },
@@ -294,6 +332,7 @@ const pages = {
       666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
       667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
+    num: 11,
     para: para11 + para11Two,
     variables: { serumData: 1, wounded: true, damage: 1 }
   },
@@ -303,6 +342,7 @@ const pages = {
       666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
       667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
+    num: 12,
     para: para12 + para12Two,
     variables: { damage: 1 }
   },
@@ -312,6 +352,7 @@ const pages = {
       11: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Time for some light reading' },
       12: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Have a look around first' }
     },
+    num: 13,
     para: para13,
     variables: { animal: 'piglets' }
   }
