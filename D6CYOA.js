@@ -26,7 +26,7 @@ function initLoadPage (page) {
   }).fadeIn(1500)
   $('footer').fadeOut(1).delay(1000).fadeIn(3000)
   resizeWindow()
-  $('#para1').fadeOut(1, function() {
+  $('#para').fadeOut(1, function() {
     $(this).html(page.para); assignTooltips()
   }).delay(500).fadeIn(3000)
   loadButtons(page.buttons)
@@ -61,6 +61,7 @@ function fullscreenBind() {
     } else if (docElm.webkitRequestFullScreen) {
       docElm.webkitRequestFullScreen()
     }
+    console.log('%cFullscreen Enabled', 'color: green')
   })
   $('#exitFullscreen').click(function exitFullscreen() {
     screenFull = false
@@ -73,6 +74,7 @@ function fullscreenBind() {
     } else if (document.msExitFullscreen) { /* IE/Edge */
       document.msExitFullscreen()
     }
+    console.log('%cFullscreen Disabled', 'color: green')
   })
 }
 
@@ -93,15 +95,17 @@ let variables = {
 // Load Page Functions
 
 function loadPage(page) {
+  console.log(`%c${page} loading`, 'color: blue')
   loadTransition()
   $('#main').fadeOut(500, function() {
     $(this).css('background-image', `url('${page.image}')`)
   }).fadeIn(500)
   $('footer').fadeOut(500).delay(1000).fadeIn(500)
-  $('#para1').fadeOut(500, function() {
+  $('#para').fadeOut(500, function() {
     $(this).html(page.para); assignTooltips()
   }).delay(500).fadeIn(1500)
   loadButtons(page.buttons)
+  console.log(`%cPage loaded`, 'color: purple')
 };
 
 function loadButtons(buttons) {
@@ -115,6 +119,7 @@ function loadButtons(buttons) {
       $('.newButton').attr('id', key)
       $('.newButton').css('background-image', `url('${buttons[key].image}')`)
       $('.newButton').removeClass('newButton')
+      console.log(`%cButton to page ${key} loaded`, 'color: purple')
     }
     bindButtons()
   }, 500)
@@ -155,13 +160,14 @@ const tooltips = {
 function assignTooltips() {
   $('.tip').mouseenter(
     function(e) {
-      var mouseX = e.pageX + 5
-      var mouseY = e.pageY
+      const mouseX = e.pageX + 5
+      const mouseY = e.pageY
       $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text(tooltips[this.id])
     })
   $('.tip').mouseleave(function() {
     $('#tooltip').fadeToggle(500)
   })
+  console.log(`%cTooltips assigned`, 'color: purple')
 };
 
 // The page numbers MUST be in order of their index or everything will be out of sync!!!
@@ -229,7 +235,7 @@ const pages = {
       666: { image: 'Assets/', txt: 'Ram them!' },
       666: { image: 'Assets/', txt: 'Send an SOS!' }
     },
-    para: para6 + para6Two,
+    para: para6,
     variables: {}
   },
   page7: {
