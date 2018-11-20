@@ -173,7 +173,7 @@ const pages = {
       2: { image: 'Assets/0(NoodleBar).jpg', txt: 'A harpoon and wetsuit catalog' },
       3: { image: 'Assets/0(NoodleBar).jpg', txt: 'Something ... classified' }
     },
-    para: para1_0, // The text that will be displayed
+    para: para0, // The text that will be displayed
     variables: {} // How variables will change
   },
   page1: {
@@ -183,7 +183,7 @@ const pages = {
       5: { image: 'Assets/1(GoatSkull).jpg', txt: 'Keep to your schedule' },
       6: { image: 'Assets/1(GoatSkull).jpg', txt: 'You\'ll wait, but only if you get a discount' }
     },
-    para: para1_1,
+    para: para1,
     variables: {}
   },
   page2: {
@@ -192,7 +192,7 @@ const pages = {
       666: { image: 'Assets/2(BlueEye).jpg', txt: 'Why not? Let\'s find a sub headed that way!' },
       667: { image: 'Assets/2(BlueEye).jpg', txt: 'She\'d just slow you down' }
     },
-    para: para1_2,
+    para: para2,
     variables: {}
   },
   page3: {
@@ -201,7 +201,7 @@ const pages = {
       7: { image: 'Assets/3(Bartender).jpg', txt: 'Claim ignorance' },
       666: { image: 'Assets/3(Bartender).jpg', txt: 'Tell them what you know' }
     },
-    para: para1_3,
+    para: para3,
     variables: {}
   },
   page4: {
@@ -210,7 +210,7 @@ const pages = {
       9: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Stop to help' },
       666: { image: 'Assets/1(GoatSkull).jpg', txt: 'Let\'s go way around' },
     },
-    para: para1_4,
+    para: para4,
     variables: { torpedoes: 4 }
   },
   page5: {
@@ -219,7 +219,7 @@ const pages = {
       9: { image: 'Assets/666.jpg', txt: 'Stop to investigate' },
       666: { image: 'Assets/666.jpg', txt: 'Nope, let\'s go around it' }
     },
-    para: para1_5,
+    para: para5,
     variables: {}
   },
   page6: {
@@ -229,7 +229,7 @@ const pages = {
       666: { image: 'Assets/', txt: 'Ram them!' },
       666: { image: 'Assets/', txt: 'Send an SOS!' }
     },
-    para: para1_6 + para2_6,
+    para: para6 + para6Two,
     variables: {}
   },
   page7: {
@@ -238,7 +238,7 @@ const pages = {
       666: { image: 'Assets/7(ImprovisedElectrocute).jpg', txt: 'Confront them' },
       8: { image: 'Assets/7(Market).jpg', txt: 'Lose them' }
     },
-    para: para1_7,
+    para: para7,
     variables: {}
   },
   page8: {
@@ -248,7 +248,7 @@ const pages = {
       667: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Take out the guards' },
       668: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Impersonate a high ranking official and board' }
     },
-    para: para1_8,
+    para: para8,
     variables: {}
   },
   page9: {
@@ -257,7 +257,7 @@ const pages = {
       10: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Dock at the empty moor' },
       666: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Nope nope nope, you\'re leaving' }
     },
-    para: para1_9,
+    para: para9,
     variables: {}
   },
   page10: {
@@ -265,7 +265,7 @@ const pages = {
     buttons: {
       13: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Continue' }
     },
-    para: para1_10,
+    para: para10,
     variables: { animal: 'piglets' }
   },
   page11: {
@@ -274,7 +274,7 @@ const pages = {
       666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
       667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
-    para: para1_11 + para2_11,
+    para: para11 + para11Two,
     variables: { serumData: 1, wounded: true, damage: 1 }
   },
   page12: {
@@ -283,7 +283,7 @@ const pages = {
       666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
       667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
-    para: para1_12 + para2_12,
+    para: para12 + para12Two,
     variables: { damage: 1 }
   },
   page13: {
@@ -292,7 +292,7 @@ const pages = {
       11: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Time for some light reading' },
       12: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Have a look around first' }
     },
-    para: para1_13,
+    para: para13,
     variables: { animal: 'piglets' }
   }
 }
