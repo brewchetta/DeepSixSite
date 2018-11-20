@@ -414,4 +414,23 @@ const pages = {
   }
 }
 
+// These getVars are mainly for debugging
+// Use the constructor for new variables
+
+console.log('%cSetting up getVars', 'color: orange')
+
+function getVar(item) {
+  return function() {
+    return window.localStorage.getItem(item)
+  }
+}
+
+const getPage = getVar('pageNum')
+const getTorpedoes = getVar('torpedoes')
+const getTailed = getVar('tailed')
+const getAnimal = getVar('animal')
+const getDamage = getVar('damage')
+const getWounded = getVar('wounded')
+const getSerumData = getVar('serumData')
+
 console.log('%cFinished loading main script', 'color: purple')
