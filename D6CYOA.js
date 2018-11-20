@@ -36,20 +36,14 @@ function initLoadPage (page) {
 // Restart function
 function restartBind () {
   $('#restart').click(function () {
-    variables.pageNum = 0
-    variables.torpedoes = 0
-    variables.tailed = false
-    variables.animal = 'solitary thoughts'
-    variables.damage = 0
-    variables.wounded = false
-    variables.serumData = 0
+    resetVars()
     loadPage(pages['page0'])
   });
 }
 
 // Fullscreen Functions
 function fullscreenBind() {
-  $('#fullscreen').click(function fullscreen () {
+  $('#fullscreen').click(function fullscreen() {
     var docElm = document.documentElement
     screenFull = true
     if (docElm.requestFullscreen) {
@@ -152,7 +146,7 @@ function loadTransition() {
 
 function bindButtons() {
   $('.bBox').click(function() {
-    variables.pageNum = Number(this.id)
+    window.localStorage.setItem(`pageNum`, Number(this.id))
     loadPage(pages['page' + this.id])
   })
 }
