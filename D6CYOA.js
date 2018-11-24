@@ -12,7 +12,7 @@ $(document).ready(function() {
   assignTooltips()
   bindButtons()
   restartBind()
-  backgroundShift()
+  bindMouseMove()
 })
 
 // Resets window height on main div
@@ -75,37 +75,21 @@ function fullscreenBind() {
   })
 }
 
-// Shifts the background left and right
-let bgDriftLeft = true
-let driftOn = true
+// Background Shifter on Mousemove
+let pagePosLog = false
 
-function backgroundShift() {
-  let backgroundPos = $('#main').css('background-position')
-  let drift = parseInt(backgroundPos.split("px ")[0])
+function bindMouseMove() {
+  $('#main').mousemove(function(event) {
+    const pageHalfX = Math.floor($('#main').width() / 2)
+    const distX = event.pageX - pageHalfX
+    let pix = (Math.abs(distX) / pageHalfX) * 100
+    if (distX < 0) { pix *= -1 }
+    let bgPos = (pix - 100) / 6
+    $('#main').css('background-position', `${bgPos}px 70%`)
 
-  if (drift >= 0) { // Check if drifting right or left
-    bgDriftLeft = false
-  } else if (drift <= ((window.screen.width / 4) * -1)) {
-    bgDriftLeft = true
-  }
-
-  if (bgDriftLeft) { // Nudge background 1px
-    drift += 1
-  } else {
-    drift -= 1
-  }
-
-  $('#main').css('background-position', `${drift}px 70%`)
-  if (driftOn === true) { window.setTimeout(backgroundShift, 75) }
-}
-
-function toggleBackgroundShift() { // TODO: Attach this to a listener for a button
-  if (driftOn === false) {
-    driftOn = true
-    backgroundShift()
-  } else {
-    driftOn = false
-  }
+    // log mouse postion if pagePosLog has been set to true
+    if (pagePosLog === true) { console.log(`X: ${event.pageX}px, #MainWidth: ${pageHalfX * 2}px, DistX: ${distX}px`) }
+  })
 }
 
 // Variables that might affect the story are stored here
@@ -183,7 +167,6 @@ function setTorps(pageVars) {
   if (pageVars['torpedoes']) {
     let t = window.localStorage.getItem('torpedoes')
     t = parseInt(t)
-    debugger
     if (pageVars['torpedoes'] < 0 && t <= pageVars['torpedoes']) {
       alert('Torpedoes negative; TODO: fix this!')
     }
