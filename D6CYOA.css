@@ -13,10 +13,11 @@ body {
 }
 
 #main {
-  padding-top: 10px;
+  display: block;
+  padding-top: 20px;
   background-size: cover;
-  overflow: hidden;
   text-align: center;
+  overflow: auto;
 }
 
 /* At some point I'll need to recalibrate this so it works across devices
@@ -98,20 +99,17 @@ html:fullscreen #main{min-height: 756px;}
    padding: 6px;
    border: 4px solid #181a3d;
    border-radius: 5px;
-   overflow: scroll;
    text-align: left;
 }
 
 .disclaimer {
-  position: absolute;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 3%;
   border-top: solid white 2px;
   border-bottom: solid white 1px;
   display: block;
   padding: 0.5em;
   background: rgba(0,0,0,0.6);
-  bottom: 0.5em;
 }
 
 .tip {
