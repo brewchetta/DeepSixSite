@@ -12,6 +12,7 @@ $(document).ready(function() {
   assignTooltips()
   bindButtons()
   restartBind()
+  backgroundShift()
 })
 
 // Resets window height on main div
@@ -72,6 +73,39 @@ function fullscreenBind() {
     }
     console.log('%cFullscreen Disabled', 'color: green')
   })
+}
+
+// Shifts the background left and right
+let bgDriftLeft = true
+let driftOn = true
+
+function backgroundShift() {
+  let backgroundPos = $('#main').css('background-position')
+  let drift = parseInt(backgroundPos.split("px ")[0])
+
+  if (drift >= 0) { // Check if drifting right or left
+    bgDriftLeft = false
+  } else if (drift <= ((window.screen.width / 4) * -1)) {
+    bgDriftLeft = true
+  }
+
+  if (bgDriftLeft) { // Nudge background 1px
+    drift += 1
+  } else {
+    drift -= 1
+  }
+
+  $('#main').css('background-position', `${drift}px 70%`)
+  if (driftOn === true) { window.setTimeout(backgroundShift, 75) }
+}
+
+function toggleBackgroundShift() { // TODO: Attach this to a listener for a button
+  if (driftOn === false) {
+    driftOn = true
+    backgroundShift()
+  } else {
+    driftOn = false
+  }
 }
 
 // Variables that might affect the story are stored here
