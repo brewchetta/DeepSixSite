@@ -69,8 +69,22 @@ html:fullscreen #main{min-height: 756px;}
       font-size: 2.5em;
     }
 
-    .pText {
-      height: auto;
+    #main {
+      background-size: cover;
+      background-position: center;
+    }
+
+    #para {
+      overflow: scroll;
+      max-height: none;
+    }
+
+    #bannerDiv > #fullscreen {
+      display: none;
+    }
+
+    #bannerDiv > #exitFullscreen {
+      display: none;
     }
 
     .bBox {
@@ -101,6 +115,7 @@ html:fullscreen #main{min-height: 756px;}
    margin-bottom: 10px;
    max-width: 90%;
    max-height: 650px;
+   overflow: hidden;
    padding: 6px;
    border: 4px solid #181a3d;
    border-radius: 5px;

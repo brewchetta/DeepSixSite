@@ -5,7 +5,7 @@ console.log('%cLoading main script', 'color: blue')
 $(document).ready(function() {
   if (!window.localStorage.getItem('pageNum')) { resetVars() }
   resizeWindow()
-  fullscreenBind()
+  if (window.screen.width > 400) {fullscreenBind()}
   const pg = window.localStorage.getItem('pageNum')
   initLoadPage(pages[`page${pg}`])
   $('#tooltip').fadeOut(1)
@@ -79,16 +79,18 @@ function fullscreenBind() {
 let pagePosLog = false
 
 function bindMouseMove() {
-  $('#main').mousemove(function(event) {
-    const pageHalfX = Math.floor($('#main').width() / 2)
-    const pageHalfY = Math.floor($('#main').height() / 2)
-    const distX = ((((event.pageX - pageHalfX) / pageHalfX) * 100) / 6) - (pageHalfX / 2)
-    const distY = ((((event.pageY - pageHalfY) / pageHalfY) * 100) / 8) - (pageHalfY / 2)
-    $('#main').css('background-position', `${distX}px ${distY}px`)
+  if (window.screen.width > 400) {
+    $('#main').mousemove(function(event) {
+      const pageHalfX = Math.floor($('#main').width() / 2)
+      const pageHalfY = Math.floor($('#main').height() / 2)
+      const distX = ((((event.pageX - pageHalfX) / pageHalfX) * 100) / 6) - (pageHalfX / 2)
+      const distY = ((((event.pageY - pageHalfY) / pageHalfY) * 100) / 8) - (pageHalfY / 2)
+      $('#main').css('background-position', `${distX}px ${distY}px`)
 
-    // log mouse postion if pagePosLog has been set to true
-    if (pagePosLog === true) { console.log(`X: ${event.pageX}px, #MainWidth: ${pageHalfX * 2}px, DistX: ${distX}px`) }
-  })
+      // log mouse postion if pagePosLog has been set to true
+      if (pagePosLog === true) { console.log(`X: ${event.pageX}px, #MainWidth: ${pageHalfX * 2}px, DistX: ${distX}px`) }
+    })
+  }
 }
 
 // Variables that might affect the story are stored here
