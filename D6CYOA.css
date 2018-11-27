@@ -64,29 +64,32 @@ html:fullscreen #main{min-height: 756px;}
 
 /* Currently orientation does not work */
 
-@media only screen and (orientation portrait) {
+@media screen and (orientation: portrait) {
     body {
-        background-color: blue
+      font-size: 2.5em;
     }
-}
 
-@media only screen and (orientation: portrait) {
+    .pText {
+      height: auto;
+    }
+
     .bBox {
-        clear: none;
-        float: left;
+      height: auto;
+    }
+
+    .bBox > img {
+      display: none;
+    }
+
+    .bBox > p {
+      height: 100%;
+      padding-bottom: 1.5em;
     }
 }
 
 .bContainer {
   display: inline-block;
   width: 92%;
-}
-
-@media only screen and (orientation: portrait) {
-    .bContainer {
-        width: 100%
-        clear: both;
-    }
 }
 
 .pText {
