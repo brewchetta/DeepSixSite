@@ -25,8 +25,6 @@ const pages = {
   page2: {
     image: 'Asssets/2(LibertyRuin).jpg',
     buttons: {
-      666: { image: 'Assets/2(BlueEye).jpg', txt: 'Why not? Let\'s find a sub headed that way!' },
-      667: { image: 'Assets/2(BlueEye).jpg', txt: 'She\'d just slow you down' }
     },
     num: 2,
     para: para2,
@@ -36,7 +34,6 @@ const pages = {
     image: 'https://orig00.deviantart.net/f866/f/2016/245/e/e/cyberpunk_bar_by_damnagy-dag7ctt.jpg',
     buttons: {
       7: { image: 'Assets/3(Bartender).jpg', txt: 'Claim ignorance' },
-      666: { image: 'Assets/3(Bartender).jpg', txt: 'Tell them what you know' }
     },
     num: 3,
     para: para3,
@@ -46,7 +43,6 @@ const pages = {
     image: 'Assets/4().jpg',
     buttons: {
       9: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Stop to help' },
-      666: { image: 'Assets/1(GoatSkull).jpg', txt: 'Let\'s go way around' },
     },
     num: 4,
     para: para4,
@@ -56,7 +52,6 @@ const pages = {
     image: 'Assets/666.jpg',
     buttons: {
       9: { image: 'Assets/666.jpg', txt: 'Stop to investigate' },
-      666: { image: 'Assets/666.jpg', txt: 'Nope, let\'s go around it' }
     },
     num: 5,
     para: para5,
@@ -65,9 +60,6 @@ const pages = {
   page6: {
     image: 'Assets/666.jpg',
     buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Outrun them!' },
-      666: { image: 'Assets/', txt: 'Ram them!' },
-      666: { image: 'Assets/', txt: 'Send an SOS!' }
     },
     num: 6,
     para: para6,
@@ -86,9 +78,7 @@ const pages = {
   page8: {
     image: 'Assets/8(BlueCorridor).jpg',
     buttons: {
-      666: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Sneak on board' },
-      667: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Take out the guards' },
-      668: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Impersonate a high ranking official and board' }
+
     },
     num: 8,
     para: para8,
@@ -98,7 +88,6 @@ const pages = {
     image: 'Assets/9(IndustrialHab).jpg',
     buttons: {
       10: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Dock at the empty moor' },
-      666: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Nope nope nope, you\'re leaving' }
     },
     num: 9,
     para: para9,
@@ -116,8 +105,6 @@ const pages = {
   page11: {
     image: 'Assets/666.jpg',
     buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
-      667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
     num: 11,
     para: para11 + para11Two,
@@ -126,8 +113,6 @@ const pages = {
   page12: {
     image: 'Assets/666.jpg',
     buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
-      667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
     },
     num: 12,
     para: para12 + para12Two,

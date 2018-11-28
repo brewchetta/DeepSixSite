@@ -16,7 +16,7 @@ body {
   display: block;
   padding-top: 20px;
   background-size: 140%;
-  background-position: -100px;
+  background-position: 70% -100px;
   background-repeat: no-repeat;
   text-align: center;
   overflow: auto;
