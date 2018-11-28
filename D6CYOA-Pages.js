@@ -25,6 +25,7 @@ const pages = {
   page2: {
     image: 'Asssets/2(LibertyRuin).jpg',
     buttons: {
+      restart: { image: 'Assets/3(Bartender).jpg', txt: 'Back to start' }
     },
     num: 2,
     para: para2,
@@ -78,7 +79,7 @@ const pages = {
   page8: {
     image: 'Assets/8(BlueCorridor).jpg',
     buttons: {
-
+      15: { image: 'Assets/1(BlueDock).jpg', txt: 'Continue' }
     },
     num: 8,
     para: para8,
@@ -131,10 +132,18 @@ const pages = {
   page14: {
     image: 'Assets/7(ImprovisedElectrocute).jpg',
     buttons: {
+      15: { image: 'Assets/1(BlueDock).jpg', txt: 'Continue' }
     },
     num: 14,
     para: para14,
     variables: { tailed: true}
+  },
+  page15: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {},
+    num: 15,
+    para: para15,
+    variables: {}
   }
 }
 

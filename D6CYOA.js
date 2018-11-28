@@ -94,58 +94,31 @@ function bindMouseMove() {
   }
 }
 
-// Variables that might affect the story are stored here
-function resetVars() {
-  window.localStorage.setItem('pageNum', 0)
-  console.log(`%cpageNum set to 0`, 'color: orange')
-  window.localStorage.setItem('torpedoes', 0)
-  console.log(`%ctorpedoes set to 0`, 'color: orange')
-  window.localStorage.setItem('tailed', false)
-  console.log(`%ctailed set to false`, 'color: orange')
-  window.localStorage.setItem('animal', 'nothing')
-  console.log(`%canimal set to 'nothing'`, 'color: orange')
-  window.localStorage.setItem('damage', 0)
-  console.log(`%cdamage set to 0`, 'color: orange')
-  window.localStorage.setItem('wounded', false)
-  console.log(`%cwounded set to false`, 'color: orange')
-  window.localStorage.setItem('serumData', 0)
-  console.log(`%cserumData set to 0`, 'color: orange')
-}
-
-// These getVars are mainly for debugging
-// Use the constructor for new variables
-console.log('%cSetting up getVars', 'color: orange')
-
-function getVar(item) {
-  return function() {
-    return window.localStorage.getItem(item)
-  }
-}
-
-const getPage = getVar('pageNum')
-const getTorpedoes = getVar('torpedoes')
-const getTailed = getVar('tailed')
-const getAnimal = getVar('animal')
-const getDamage = getVar('damage')
-const getWounded = getVar('wounded')
-const getSerumData = getVar('serumData')
-
 // //////////////////////////////////////////////////////////////////
 // Load Page Functions
 
 function loadPage(page) {
-  console.log(`%cPage loading`, 'color: blue')
-  loadTransition()
-  $('#main').fadeOut(500, function() {
-    $(this).css('background-image', `url('${page.image}')`)
-  }).fadeIn(500)
-  $('footer').fadeOut(500).delay(1000).fadeIn(500)
-  $('#para').fadeOut(500, function() {
-    $(this).html(page.para); assignTooltips()
-  }).delay(500).fadeIn(1500)
-  varChange(page)
-  loadButtons(page.buttons)
-  console.log(`%cPage loaded`, 'color: purple')
+  if (loadPagePathChangeOnVar(page) === true) {
+    console.log(`%cPage loading`, 'color: blue')
+    loadTransition()
+    $('#main').fadeOut(500, function() {
+      $(this).css('background-image', `url('${page.image}')`)
+    }).fadeIn(500)
+    $('footer').fadeOut(500).delay(1000).fadeIn(500)
+    $('#para').fadeOut(500, function() {
+      $(this).html(page.para); assignTooltips()
+    }).delay(500).fadeIn(1500)
+    varChange(page)
+    loadButtons(page.buttons)
+    console.log(`%cPage loaded`, 'color: purple')}
+}
+
+// This is a lil hacky but it works
+function loadPagePathChangeOnVar(page) {
+  if (page === pages['page15'] && localStorage['tailed'] == 'true' ) {
+    loadPage(pages[`page0`])
+    return false
+  } else { return true }
 }
 
 function loadButtons(buttons) {
