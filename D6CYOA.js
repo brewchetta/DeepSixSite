@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 // Resets window height on main div
 function resizeWindow() {
-  const winHeight = window.innerHeight
+  const winHeight = window.outerHeight
   $('#main').css('height', `${winHeight}`)
 }
 
@@ -58,6 +58,7 @@ function fullscreenBind() {
     } else if (docElm.webkitRequestFullScreen) {
       docElm.webkitRequestFullScreen()
     }
+    resizeWindow()
     console.log('%cFullscreen Enabled', 'color: green')
   })
   $('#exitFullscreen').click(function exitFullscreen() {
@@ -84,7 +85,7 @@ function bindMouseMove() {
       const pageHalfX = Math.floor($('#main').width() / 2)
       const pageHalfY = Math.floor($('#main').height() / 2)
       const distX = ((((event.pageX - pageHalfX) / pageHalfX) * 100) / 6) - (pageHalfX / 2)
-      const distY = ((((event.pageY - pageHalfY) / pageHalfY) * 100) / 8) - (pageHalfY / 2)
+      const distY = ((((event.pageY - pageHalfY) / pageHalfY) * 100) / 8) - (pageHalfY / 6)
       $('#main').css('background-position', `${distX}px ${distY}px`)
 
       // log mouse postion if pagePosLog has been set to true
@@ -260,186 +261,6 @@ function bindButtons() {
     window.localStorage.setItem(`pageNum`, Number(this.id))
     loadPage(pages['page' + this.id])
   })
-}
-
-// Tooltips are bound by locating an element's id ////////////////////////////
-const tooltips = {
-  signLang: 'ASL is a common language among divers in the Atlantic who can\'t afford JANUS helmet communicators',
-  kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
-  janus: 'A system using sonic waves to transmit information, similar to radiowaves above water',
-  war: 'The submarine wars of the 40\'s ended national sovereignty in favor of corporate domain',
-  harpoon: 'Bullet guns common on the surface have been outlawed throughout the Atlantic; harpoons don\'t pose the same risk to habs that a stray bullet does',
-  newBrooklyn: 'One of the largest habs in the Atlantic with a population of over 500,000',
-  hab: 'Submerged habitats built for post-surface humans',
-  admiralty: 'A pan-Atlantic military force headed by seven Admirals appointed by the corporate governments',
-  preSub: 'Pre-Submergence Checklist, average completion time is two minutes',
-  newYork: 'Abandoned in 2031, the most successful mass evacuation on the Eastern seaboard',
-  hydro: 'Hydroponically grown ingredients, often considered cheap and tasteless',
-  nub: 'Non-Useful Body, a civilian',
-  deepSix: 'The dangerous stretches of ocean between ports of call',
-  sixsixsix: 'People who worship the devil as their apocalyptic saviour',
-  aGang: 'Submarine mechanics, formally known as machinist\'s mates'
-}
-
-// This must be called on every new page load to bind tooltips
-function assignTooltips() {
-  $('.tip').mouseenter(
-    function(e) {
-      const mouseX = e.pageX + 5
-      const mouseY = e.pageY
-      $('#tooltip').css({ top: mouseY, left: mouseX }).fadeToggle(500).text(tooltips[this.id])
-    })
-  $('.tip').mouseleave(function() {
-    $('#tooltip').fadeToggle(500)
-  })
-  console.log(`%cTooltips assigned`, 'color: purple')
-};
-
-// The page numbers MUST be in order of their index or everything will be out of sync!!!
-const pages = {
-  page0: { // This is the page number, correlated with index number
-    image: 'Assets/0(NoodleBar).jpg', // This will be the main image
-    buttons: { // Adds buttons, their id determines which page they lead to
-      1: { image: 'Assets/0(NoodleBar).jpg', txt: 'A boring old submarine manifest' },
-      2: { image: 'Assets/0(NoodleBar).jpg', txt: 'A harpoon and wetsuit catalog' },
-      3: { image: 'Assets/0(NoodleBar).jpg', txt: 'Something ... classified' }
-    },
-    num: 0,
-    para: para0, // The text that will be displayed
-    variables: {} // How variables will change
-  },
-  page1: {
-    image: 'Assets/1(BlueDock).jpg',
-    buttons: {
-      4: { image: 'Assets/1(GoatSkull).jpg', txt: 'Fine, just fine, you\'ll wait' },
-      5: { image: 'Assets/1(GoatSkull).jpg', txt: 'Keep to your schedule' },
-      6: { image: 'Assets/1(GoatSkull).jpg', txt: 'You\'ll wait, but only if you get a discount' }
-    },
-    num: 1,
-    para: para1,
-    variables: {}
-  },
-  page2: {
-    image: 'Asssets/2(LibertyRuin).jpg',
-    buttons: {
-      666: { image: 'Assets/2(BlueEye).jpg', txt: 'Why not? Let\'s find a sub headed that way!' },
-      667: { image: 'Assets/2(BlueEye).jpg', txt: 'She\'d just slow you down' }
-    },
-    num: 2,
-    para: para2,
-    variables: {}
-  },
-  page3: {
-    image: 'Assets/3(Bartender).jpg',
-    buttons: {
-      7: { image: 'Assets/3(Bartender).jpg', txt: 'Claim ignorance' },
-      666: { image: 'Assets/3(Bartender).jpg', txt: 'Tell them what you know' }
-    },
-    num: 3,
-    para: para3,
-    variables: {}
-  },
-  page4: {
-    image: 'Assets/4().jpg',
-    buttons: {
-      9: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Stop to help' },
-      666: { image: 'Assets/1(GoatSkull).jpg', txt: 'Let\'s go way around' },
-    },
-    num: 4,
-    para: para4,
-    variables: { torpedoes: 4 }
-  },
-  page5: {
-    image: 'Assets/666.jpg',
-    buttons: {
-      9: { image: 'Assets/666.jpg', txt: 'Stop to investigate' },
-      666: { image: 'Assets/666.jpg', txt: 'Nope, let\'s go around it' }
-    },
-    num: 5,
-    para: para5,
-    variables: {}
-  },
-  page6: {
-    image: 'Assets/666.jpg',
-    buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Outrun them!' },
-      666: { image: 'Assets/', txt: 'Ram them!' },
-      666: { image: 'Assets/', txt: 'Send an SOS!' }
-    },
-    num: 6,
-    para: para6,
-    variables: {}
-  },
-  page7: {
-    image: 'Assets/7(Market).jpg',
-    buttons: {
-      666: { image: 'Assets/7(ImprovisedElectrocute).jpg', txt: 'Confront them' },
-      8: { image: 'Assets/7(Market).jpg', txt: 'Lose them' }
-    },
-    num: 7,
-    para: para7,
-    variables: {}
-  },
-  page8: {
-    image: 'Assets/8(BlueCorridor).jpg',
-    buttons: {
-      666: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Sneak on board' },
-      667: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Take out the guards' },
-      668: { image: 'Assets/8(BlueCorridor).jpg', txt: 'Impersonate a high ranking official and board' }
-    },
-    num: 8,
-    para: para8,
-    variables: {}
-  },
-  page9: {
-    image: 'Assets/9(IndustrialHab).jpg',
-    buttons: {
-      10: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Dock at the empty moor' },
-      666: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Nope nope nope, you\'re leaving' }
-    },
-    num: 9,
-    para: para9,
-    variables: {}
-  },
-  page10: {
-    image: 'Assets/10(Cryo).jpg',
-    buttons: {
-      13: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Continue' }
-    },
-    num: 10,
-    para: para10,
-    variables: { animal: 'brood of piglets' }
-  },
-  page11: {
-    image: 'Assets/666.jpg',
-    buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
-      667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
-    },
-    num: 11,
-    para: para11 + para11Two,
-    variables: { serumData: 1, wounded: true, damage: 1 }
-  },
-  page12: {
-    image: 'Assets/666.jpg',
-    buttons: {
-      666: { image: 'Assets/666.jpg', txt: 'Try and escape!' },
-      667: { image: 'Assets/666.jpg', txt: 'Fire torpedo!' }
-    },
-    num: 12,
-    para: para12 + para12Two,
-    variables: { damage: 1 }
-  },
-  page13: {
-    image: 'Assets/10(Cryo).jpg',
-    buttons: {
-      11: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Time for some light reading' },
-      12: { image: 'Assets/9(IndustrialHab).jpg', txt: 'Have a look around first' }
-    },
-    num: 13,
-    para: para13,
-    variables: { animal: 'brood of piglets' }
-  }
 }
 
 console.log('%cFinished loading main script', 'color: purple')
