@@ -1,5 +1,4 @@
 // Initial load-up
-
 console.log('%cLoading main script', 'color: blue')
 
 $(document).ready(function() {
@@ -126,16 +125,18 @@ function loadButtons(buttons) {
   window.setTimeout(function() {
     $('.bContainer').empty()
     for (const key in buttons) {
-      var bttn = '<div class="bBox newButton"><p></p><img src=""></div>'
+      const bttn = renderButton(buttons, key)
       $('.bContainer').append(bttn)
-      $('.newButton').children('p').text(buttons[key].txt)
-      $('.newButton').attr('id', key)
       $('.newButton').css('background-image', `url('${buttons[key].image}')`)
       $('.newButton').removeClass('newButton')
       console.log(`%cButton to page ${key} loaded`, 'color: purple')
     }
     bindButtons()
   }, 500)
+}
+
+function renderButton(buttons, key) {
+  return `<div class="bBox newButton" id=${key}><p>${buttons[key].txt}</p><img src=""></div>`
 }
 
 function loadTransition() {

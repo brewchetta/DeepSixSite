@@ -8,6 +8,7 @@ function varChange(page) {
   setDmg(pageVars)
   setWounded(pageVars)
   setSerum(pageVars)
+  setEmployer(pageVars)
 }
 
 function setPage(num) {
@@ -83,6 +84,15 @@ function setSerum(pageVars) {
   }
 }
 
+function setEmployer(pageVars) {
+  if (pageVars['employer']) {
+    const t = pageVars['employer']
+    const u = window.localStorage.getItem('employer')
+    window.localStorage.setItem('employer', `${t}`)
+    console.log(`%cYou are now employed by ${t}`, 'color: orange')
+  }
+}
+
 // These getVars are mainly for debugging
 // Use the constructor for new variables
 console.log('%cSetting up getVars', 'color: orange')
@@ -100,6 +110,7 @@ const getAnimal = getVar('animal')
 const getDamage = getVar('damage')
 const getWounded = getVar('wounded')
 const getSerumData = getVar('serumData')
+const getEmployer = getVar('employer')
 
 function resetVars() {
   window.localStorage.setItem('pageNum', 0)
@@ -116,4 +127,6 @@ function resetVars() {
   console.log(`%cwounded set to false`, 'color: orange')
   window.localStorage.setItem('serumData', 0)
   console.log(`%cserumData set to 0`, 'color: orange')
+  window.localStorage.setItem('employer', 'you')
+  console.log(`%cemployer set to 'you'`, 'color: orange')
 }

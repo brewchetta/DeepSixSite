@@ -140,10 +140,37 @@ const pages = {
   },
   page15: {
     image: 'Assets/1(BlueDock).jpg',
-    buttons: {},
+    buttons: {
+      16: { image: 'Assets/1(BlueDock).jpg', txt: 'Sneak aboard'}
+    },
     num: 15,
     para: para15,
     variables: {}
+  },
+  page16: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {
+      17: { image: 'https://www.lifewithcats.tv/wp-content/uploads/2012/12/koy.jpg', txt: 'Continue'}
+    },
+    num: 16,
+    para: para16,
+    variables: {}
+  },
+  page17: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {
+      18: { image: '', txt: 'Hack the Terminal'}
+    },
+    num: 17,
+    para: para17,
+    variables: { animal: 'tuxedo cat'}
+  },
+  page18: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {},
+    num: 18,
+    para: para18,
+    variables: { animal: 'tuxedo cat'}
   }
 }
 

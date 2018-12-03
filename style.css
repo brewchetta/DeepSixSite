@@ -1,4 +1,3 @@
-
 html, body {
  margin: 0;
  padding: 0;
@@ -187,3 +186,18 @@ html:fullscreen #bannerDiv > #exitFullscreen{display: inline-block;}
 html:-moz-full-screen #fullscreen{display: none;}
 html:-webkit-full-screen #fullscreen{display: none;}
 html:fullscreen #fullscreen{display: none;}
+
+/* Styling for various puzzles */
+
+#hacker-input {
+  margin-left: 20%;
+  width: 60%;
+  display: block;
+  background: black;
+  color: white;
+  border: white solid 2px;
+}
+
+#hacker-input-processed {
+  color: white;
+}
