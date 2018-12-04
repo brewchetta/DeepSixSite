@@ -7,5 +7,12 @@
 String.prototype.capitalize = function() {
   if (this.length > 0) {
     return this.charAt(0).toUpperCase() + this.slice(1)
-  } else {return ''}
+  } else { return '' }
+}
+
+// Returns a random element in an array
+Array.prototype.random = function() {
+  if (this.length > 0) {
+    return this[Math.floor(Math.random() * this.length)];
+  } else { return undefined }
 }

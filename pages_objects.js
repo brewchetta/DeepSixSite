@@ -159,7 +159,8 @@ const pages = {
   page17: {
     image: 'Assets/1(BlueDock).jpg',
     buttons: {
-      18: { image: '', txt: 'Hack the Terminal'}
+      18: { image: '', txt: 'Hack the Terminal'},
+      20: { image: '', txt: 'Ignore the Door'}
     },
     num: 17,
     para: para17,
@@ -167,10 +168,27 @@ const pages = {
   },
   page18: {
     image: 'Assets/1(BlueDock).jpg',
-    buttons: {},
+    buttons: {
+      20: { image: '', txt: 'Give up' }
+    },
     num: 18,
     para: para18,
-    variables: { animal: 'tuxedo cat'}
+    variables: { animal: 'tuxedo cat'},
+    puzzle: function() {bindHackerPuzzle(puzzlePage18)}
+  },
+  page19: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {},
+    num: 19,
+    para: para19,
+    variables: {}
+  },
+  page20: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {},
+    num: 20,
+    para: para20,
+    variables: {}
   }
 }
 

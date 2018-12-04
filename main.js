@@ -32,6 +32,7 @@ function initLoadPage (page) {
     $(this).html(page.para); assignTooltips()
   }).delay(500).fadeIn(3000)
   loadButtons(page.buttons)
+  loadPuzzle(page)
 };
 
 // Restart function
@@ -109,6 +110,7 @@ function loadPage(page) {
     }).delay(500).fadeIn(1500)
     varChange(page)
     loadButtons(page.buttons)
+    loadPuzzle(page)
     console.log(`%cPage loaded`, 'color: purple')}
 }
 
@@ -118,6 +120,12 @@ function loadPagePathChangeOnVar(page) {
     loadPage(pages[`page0`])
     return false
   } else { return true }
+}
+
+function loadPuzzle(page) {
+  if (page['puzzle']) {
+    setTimeout(() => { page['puzzle']() }, 1000)
+  } // If the puzzle is loading before the page, make the setTimeout longer
 }
 
 function loadButtons(buttons) {

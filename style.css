@@ -196,8 +196,10 @@ html:fullscreen #fullscreen{display: none;}
   background: black;
   color: white;
   border: white solid 2px;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 #hacker-input-processed {
   color: white;
+  font-family: 'Share Tech Mono', monospace;
 }
