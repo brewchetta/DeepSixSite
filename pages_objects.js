@@ -25,7 +25,7 @@ const pages = {
   page2: {
     image: 'Asssets/2(LibertyRuin).jpg',
     buttons: {
-      restart: { image: 'Assets/3(Bartender).jpg', txt: 'Back to start' }
+      0: { image: 'Assets/3(Bartender).jpg', txt: 'Back to start' }
     },
     num: 2,
     para: para2,
