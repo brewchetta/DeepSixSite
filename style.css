@@ -106,19 +106,20 @@ html:fullscreen #main{min-height: 756px;}
 }
 
 .pText {
+  background: rgba(0,0,0,0.9);
+  border: 4px solid #181a3d;
+  border-radius: 5px;
+  cursor: default;
+  color:#ceb600;
+  display: inline-block;
   font-size: 1.1em;
-   color:#ceb600;
-   background: rgba(0,0,0,0.9);
-   display: inline-block;
-   margin-top: 10px;
-   margin-bottom: 10px;
-   max-width: 90%;
-   max-height: 650px;
-   overflow: auto;
-   padding: 6px;
-   border: 4px solid #181a3d;
-   border-radius: 5px;
-   text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 90%;
+  max-height: 650px;
+  overflow: auto;
+  padding: 6px;
+  text-align: left;
 }
 
 .disclaimer {
