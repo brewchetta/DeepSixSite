@@ -1,4 +1,4 @@
-// The page numbers MUST be in order of their index or everything will be out of sync!!!
+// The page numbers MUST be in order of their index
 const pages = {
   page0: { // This is the page number, correlated with index number
     image: 'Assets/0(NoodleBar).jpg', // This will be the main image
@@ -23,8 +23,9 @@ const pages = {
     variables: {}
   },
   page2: {
-    image: 'Asssets/2(LibertyRuin).jpg',
+    image: 'Assets/2(LibertyRuin).jpg',
     buttons: {
+      21: { image: 'Assets/2(LibertyRuin).jpg', txt: 'An adventure, why not?'}
     },
     num: 2,
     para: para2,
@@ -187,6 +188,22 @@ const pages = {
     buttons: {},
     num: 20,
     para: para20,
+    variables: {}
+  },
+  page21: {
+    image: 'Assets/1(BlueDock).jpg',
+    buttons: {
+      22: { image: 'Assets/2(LibertyRuin).jpg', txt: 'Now that you mention it...'}
+    },
+    num: 21,
+    para: para21,
+    variables: {}
+  },
+  page22: {
+    image: 'Assets/2(LibertyRuin).jpg',
+    buttons: {},
+    num: 22,
+    para: para22,
     variables: {}
   }
 }

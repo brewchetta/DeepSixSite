@@ -4,7 +4,7 @@ const tooltips = {
   kinerine: 'A chemical cocktail that oxidizes the blood and relieves the effects of intense water pressure',
   janus: 'A system using sonic waves to transmit information, similar to radiowaves above water',
   war: 'The submarine wars of the 40\'s ended national sovereignty in favor of corporate domain',
-  harpoon: 'Bullet guns common on the surface have been outlawed throughout the Atlantic; harpoons don\'t pose the same risk to habs that a stray bullet does',
+  harpoon: 'More highly powered weapons common on the surface have been outlawed throughout the Atlantic; harpoons don\'t pose the same risk to habs that a stray bullet does',
   newBrooklyn: 'One of the largest habs in the Atlantic with a population of over 500,000',
   hab: 'Submerged habitats built for post-surface humans',
   admiralty: 'A pan-Atlantic military force headed by seven Admirals appointed by the corporate governments',

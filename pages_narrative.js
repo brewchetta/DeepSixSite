@@ -4,7 +4,7 @@ const para0 = `A woman slides onto the stool next to you. She's buoyant, energet
 
 const para1 = `Maybe it's the years that have gotten to you, maybe it's the shit quality of the booze around here. Either way, you're tired. At one point this bar carried real dirt grown food. Now it's all <span class='tip' id='hydro'>hydro</span>. You're old enough, you can tell the difference. These noodles sure weren't made from dirt grown rice.</br></br>But what's to be done? <br><br>You collect your belongings. The sub'll leave in thirty, and it's six decks below. And to think, twenty-four decks above and then another mile up is the surface of the Atlantic. Slick with oil, boiling with storms. Deadly.</br></br>Yeah, as if you're safer down here.</br></br>The tablet pings before you reach the dock. Everything's on schedule, the crew's just waiting for you. If only they'd put elevators in this place, here you are descending a stairwell while exposed pipes drizzle condensation above your head. As you walk onto the docking deck and into your sub bay, a woman passes you and then stops and says, "Morning captain. Don't head off yet, I haven't gotten your torpedoes onto the ship." </br></br>It takes a second to register. Why were they marked as delivered on the tablet? She's burly, a <span id='sixsixsix' class='tip'>six-six-sixer</span> with a goat's skull tattooed across her bald scalp and piercings that sprout across her face.`
 
-const para2 = `Not just wetsuits, but <span id=harpoon class=tip>harpoons</span> and small knives, the best in compressed oxygen tanks and survival water filters. You touch a particularly enticing pair of flippers and a popup blocks your view with 'Ten Best Old World Salvage Spots'. The ruins of <span id = 'newYork' class = 'tip'>New York City</span> top the list, as always. You'd have to charter a submarine to get there, or of course swim five hundred miles sideways and a mile up with those sick polydurable flippers.<br><br>The young woman returns suddenly. "You ever been?" She darts into her shirley temple for a sip. "I hear it's totally flooded, but mutants live on the highest buildings. Like, right above surface level."</br>She's killing you with that mischievous grin of hers. She says, "Any chance you'd head that way? We could go together!"`
+const para2 = `Not just wetsuits, but <span id=harpoon class=tip>harpoons</span> and small knives, the best in compressed oxygen tanks and survival water filters. You touch a particularly enticing pair of flippers and a popup blocks your view with 'Ten Best Old World Salvage Spots'. The ruins of <span id = 'newYork' class = 'tip'>New York City</span> top the list, as always. You'd have to charter a submarine to get there, or of course swim five hundred miles sideways and a mile up with those sick polydurable flippers.<br><br>The young woman returns suddenly. "You ever been?" She darts into her shirley temple for a sip. "I hear it's totally flooded, but mutants live on the highest buildings. Like, right above surface level."</br></br>She's killing you with that mischievous grin of hers. She says, "Any chance you'd head that way? We could go together!"`
 
 const para3 = `You're not even sure what it is yet. The data slowly unravels before you, dumping a variety of charts onto your screen that make very little sense. You've got a pattern analysis tool running, and one name keeps popping up over and over. 'Huebert Livingston.'<br><br>You signal the bartender and they pass you a drink. Beneath the glass is your payment, a data chip with Admiralty Exchange stock numbers.<br><br>The bartender glances at the charts and the name. They shrug. "Doesn't mean a thing to me."<br><br>You know better than that. It's not greek, or even the name of a person. It's the name of a submarine, and it's docked here at this station. It had just returned from a salvage trip, somewhere like the ruins of <span id='newYork' class='tip'>New York City</span> if you had to guess.<br><br>The bartender looks you in the eye. "Any ideas what this name means?"`
 
@@ -47,5 +47,31 @@ const para18 = `[-- Try out different combinations of letters and numbers --]<br
 const para19 = `TODO: Add for having hacked through the door`
 
 const para20 = `TODO: Add for giving up on the door`
+
+const para21 = `A couple minutes of fast paced talking proves she's serious. In those two minutes you learn that a submarine already docked with a crew ready to head out to the New York ruins, they have advanced equipment including the brand of harpoon you'd been looking at along with a prototype Sheepshead DD Drone, tech that screams 'I AM FROM THE FUTURE! WORSHIP ME!'<br/><br/>And it's all true, naturally, you find the submarine manifest on this <span id=hab class=tip>hab's</span> mooring directory, available for all to see.<br/><br/>There comes a point an hour later when you're not even sure you've moved of your own volition. You're loading a torpedo onto the sub with the help of burly but affable man in floral print shorts. He's wearing the same khaki sunhat as Dali, the young woman. His name is Viktor with a K.<br/><br/>With the final torpedo loaded up Viktor casually takes you aside. "You know this will be a an exciting and challenging trip. Tell me, do you believe the stories of mutants in the ruins of New York?"`
+
+const para22 = `TODO: Add this paragraph(22)`
+
+const para23 = `TODO: Add this paragraph(23)`
+
+const para24 = `TODO: Add this paragraph(24)`
+
+const para25 = `TODO: Add this paragraph(25)`
+
+const para26 = `TODO: Add this paragraph(26)`
+
+const para27 = `TODO: Add this paragraph(27)`
+
+const para28 = `TODO: Add this paragraph(28)`
+
+const para29 = `TODO: Add this paragraph(29)`
+
+const para30 = `TODO: Add this paragraph(30)`
+
+const para31 = `TODO: Add this paragraph(31)`
+
+const para32 = `TODO: Add this paragraph(32)`
+
+const para33 = `TODO: Add this paragraph(33)`
 
 console.log('%cNarrative loaded', 'color: purple')
