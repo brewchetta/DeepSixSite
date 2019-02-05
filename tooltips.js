@@ -14,7 +14,8 @@ const tooltips = {
   nub: 'Non-Useful Body, a civilian',
   deepSix: 'The dangerous stretches of deep ocean between ports of call',
   sixsixsix: 'People who worship the devil as their apocalyptic saviour',
-  aGang: 'Submarine mechanics, formally known as machinist\'s mates'
+  aGang: 'Submarine mechanics, formally known as machinist\'s mates',
+  ghost: `The number of disappeared submarines, old ruins and destroyed habs throughout the Deep Six lends itself well to ghost stories.`
 }
 
 // This must be called on every new page load to bind tooltips

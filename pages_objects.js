@@ -201,9 +201,20 @@ const pages = {
   },
   page22: {
     image: 'Assets/2(LibertyRuin).jpg',
-    buttons: {},
+    buttons: {
+      23: { image: 'Assets/2(LibertyRuin).jpg', txt: 'Continue'}
+    },
     num: 22,
     para: para22,
+    variables: {}
+  },
+  page23: {
+    image: 'Assets/2(LibertyRuin).jpg',
+    buttons: {
+
+    },
+    num: 23,
+    para: para23,
     variables: {}
   }
 }
