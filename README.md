@@ -14,6 +14,8 @@ https://deep-six.herokuapp.com/index.html
 
 The website for Deep Six is located on Heroku. Heroku often needs a few seconds to reboot its low traffic websites so please be patient while it loads up (the process shouldn't take more than five or ten seconds).
 
+You can also see a brief demo video here: https://youtu.be/9cW1iy7SSuQ
+
 ## Features
 
 ### Single Page Application
