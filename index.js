@@ -81,7 +81,7 @@ let pagePosLog = false
 
 function bindMouseMove() {
   if (window.screen.width > 400) {
-    $('#main').mousemove(function() {
+    $('#main').mousemove((event) => {
       const pageHalfX = Math.floor($('#main').width() / 2)
       const pageHalfY = Math.floor($('#main').height() / 2)
       const distX = ((((event.pageX - pageHalfX) / pageHalfX) * 100) / 6) - (pageHalfX / 2)

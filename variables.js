@@ -9,6 +9,7 @@ function varChange(page) {
   setWounded(pageVars)
   setSerum(pageVars)
   setEmployer(pageVars)
+  setDestination(pageVars)
 }
 
 function setPage(num) {
@@ -90,6 +91,14 @@ function setEmployer(pageVars) {
     const u = window.localStorage.getItem('employer')
     window.localStorage.setItem('employer', `${t}`)
     console.log(`%cYou are now employed by ${t}`, 'color: orange')
+  }
+}
+
+function setDestination(pageVars) {
+  if (pageVars['destination']) {
+    const t = pageVars['destination']
+    window.localStorage.setItem('destination', `${t}`)
+    console.log(`%cYou are now heading towards ${t}`, 'color: orange')
   }
 }
 
