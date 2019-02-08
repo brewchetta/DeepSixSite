@@ -221,7 +221,7 @@ const pages = {
   page24: {
     image: 'Assets/2(LibertyRuin).jpg',
     buttons: {
-
+      21: { image: 'Assets/2(LibertyRuin).jpg', txt: 'Hell yeah!'}
     },
     num: 24,
     para: para24,
