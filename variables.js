@@ -120,6 +120,7 @@ const getDamage = getVar('damage')
 const getWounded = getVar('wounded')
 const getSerumData = getVar('serumData')
 const getEmployer = getVar('employer')
+const getDestination = getVar('destination')
 
 function resetVars() {
   window.localStorage.setItem('pageNum', 0)
@@ -138,4 +139,6 @@ function resetVars() {
   console.log(`%cserumData set to 0`, 'color: orange')
   window.localStorage.setItem('employer', 'you')
   console.log(`%cemployer set to 'you'`, 'color: orange')
+  window.localStorage.setItem('destination', 'nowhere')
+  console.log(`%cdestination set to 'nowhere'`, 'color: orange')
 }

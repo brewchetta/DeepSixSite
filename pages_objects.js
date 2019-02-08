@@ -30,7 +30,7 @@ const pages = {
     },
     num: 2,
     para: para2,
-    variables: {}
+    variables: {destination: 'the ruins of New York'}
   },
   page3: {
     image: 'https://orig00.deviantart.net/f866/f/2016/245/e/e/cyberpunk_bar_by_damnagy-dag7ctt.jpg',
