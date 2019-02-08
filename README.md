@@ -12,7 +12,7 @@ Deep Six is a dark choose your own adventure story about the last remnants of hu
 
 https://deep-six.herokuapp.com/index.html
 
-The website for Deep Six is located on Heroku. Heroku often needs a few seconds to reboot its low traffic websites so please be patient while it loads up (the process shouldn't take more than five or ten seconds).
+The website for Deep Six is located on Heroku. Heroku often needs a few seconds to reboot if it's been off for a while so please be patient while it loads (the process shouldn't take more than five or ten seconds).
 
 You can also see a brief demo video here: https://youtu.be/Vw93iBp48Xc
 
