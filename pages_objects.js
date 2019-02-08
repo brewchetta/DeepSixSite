@@ -25,7 +25,8 @@ const pages = {
   page2: {
     image: 'Assets/2(LibertyRuin).jpg',
     buttons: {
-      21: { image: 'Assets/2(LibertyRuin).jpg', txt: 'An adventure, why not?'}
+      21: { image: 'Assets/2(LibertyRuin).jpg', txt: 'An adventure! Why not?'},
+      24: { image: 'Assets/2(LibertyRuin).jpg', txt: `You could do better than New York`}
     },
     num: 2,
     para: para2,
@@ -216,6 +217,15 @@ const pages = {
     num: 23,
     para: para23,
     variables: {}
+  },
+  page24: {
+    image: 'Assets/2(LibertyRuin).jpg',
+    buttons: {
+
+    },
+    num: 24,
+    para: para24,
+    variables: {destination: 'the Gold Standard'}
   }
 }
 
