@@ -12,12 +12,14 @@ body {
 }
 
 #main {
-  display: block;
-  padding-top: 20px;
-  background-size: 140%;
   background-position: 70% -100px;
   background-repeat: no-repeat;
+  background-size: 140%;
+  display: block;
+  padding-top: 20px;
   text-align: center;
+  -webkit-transition: background-position 0.1s linear; /* Safari */
+  transition: background-position 0.1s linear;
   overflow: auto;
 }
 
