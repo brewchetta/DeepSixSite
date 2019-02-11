@@ -229,10 +229,19 @@ const pages = {
   },
   page25: {
     image: 'Assets/25(VerticalStackHabs).png',
-    buttons: {},
+    buttons: {
+      26: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's check out that sound`}
+    },
     num: 25,
     para: para25,
     variables: {}
+  },
+  page26: {
+    image: 'Assets/25(VerticalStackHabs).png',
+    buttons: {},
+    num: 26,
+    para: para26,
+    variables: {wounded: true}
   }
 }
 

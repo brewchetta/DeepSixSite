@@ -16,7 +16,8 @@ const tooltips = {
   sixsixsix: 'People who worship the devil as their apocalyptic saviour',
   aGang: 'Submarine mechanics, formally known as machinist\'s mates',
   ghost: `The number of disappeared submarines, old ruins and destroyed habs throughout the Deep Six lends itself well to ghost stories.`,
-  iai: `Integrated Artificial Intelligence, a rudimentary AI that's become standard on newer submarines.`
+  iai: `Integrated Artificial Intelligence, a rudimentary AI that's become standard on newer submarines.`,
+  drone: `Nations produced hundreds of thousands of armed drones during the submarine wars. Most of these malfunctioned and haven't been recovered.`
 }
 
 // This must be called on every new page load to bind tooltips
