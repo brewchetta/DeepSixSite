@@ -230,7 +230,8 @@ const pages = {
   page25: {
     image: 'Assets/25(VerticalStackHabs).png',
     buttons: {
-      26: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's check out that sound`}
+      26: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's check out that sound`},
+      27: { image: 'Assets/2(LibertyRuin).jpg', txt: `That dark room probably has safer answers`}
     },
     num: 25,
     para: para25,
@@ -242,6 +243,22 @@ const pages = {
     num: 26,
     para: para26,
     variables: {wounded: true}
+  },
+  page27: {
+    image: 'Assets/25(VerticalStackHabs).png',
+    buttons: {
+      28: { image: 'Assets/2(LibertyRuin).jpg', txt: `Continue` }
+    },
+    num: 27,
+    para: para27,
+    variables: {}
+  },
+  page28: {
+    image: 'Assets/25(VerticalStackHabs).png',
+    buttons: {},
+    num: 28,
+    para: para28,
+    variables: {}
   }
 }
 

@@ -63,6 +63,13 @@ html:fullscreen #main{min-height: 756px;}
   background-position: center;
 }
 
+/* Special font classes */
+
+.tech-font {
+  font-family: 'Share Tech Mono', monospace;
+  color: cyan;
+}
+
 /* Currently orientation does not work */
 
 @media screen and (orientation: portrait) {
