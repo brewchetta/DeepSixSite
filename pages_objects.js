@@ -239,7 +239,9 @@ const pages = {
   },
   page26: {
     image: 'Assets/25(VerticalStackHabs).png',
-    buttons: {},
+    buttons: {
+      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Who cares? We should leave!`}
+    },
     num: 26,
     para: para26,
     variables: {wounded: true}
@@ -255,9 +257,18 @@ const pages = {
   },
   page28: {
     image: 'Assets/25(VerticalStackHabs).png',
-    buttons: {},
+    buttons: {
+      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's head back`}
+    },
     num: 28,
     para: para28,
+    variables: { serumData: 1 }
+  },
+  page29: {
+    image: 'Assets/25(VerticalStackHabs).png',
+    buttons: {},
+    num: 29,
+    para: para29,
     variables: {}
   }
 }
