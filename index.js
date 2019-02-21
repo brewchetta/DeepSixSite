@@ -29,7 +29,7 @@ function initLoadPage (page) {
   $('footer').fadeOut(1).delay(1000).fadeIn(3000)
   resizeWindow()
   $('#para').fadeOut(1, function() {
-    $(this).html(page.para); assignTooltips()
+    $(this).html(page.para()); assignTooltips()
   }).delay(500).fadeIn(3000)
   loadButtons(page.buttons)
   loadPuzzle(page)

@@ -240,7 +240,8 @@ const pages = {
   page26: {
     image: 'Assets/25(VerticalStackHabs).png',
     buttons: {
-      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Who cares? We should leave!`}
+      27: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's check out that other room` },
+      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Fuck this, let's get out of here!` }
     },
     num: 26,
     para: para26,
@@ -258,11 +259,11 @@ const pages = {
   page28: {
     image: 'Assets/25(VerticalStackHabs).png',
     buttons: {
-      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's head back`}
+      29: { image: 'Assets/2(LibertyRuin).jpg', txt: `Let's head back` }
     },
     num: 28,
     para: para28,
-    variables: { serumData: 1 }
+    variables: {serumData: 1}
   },
   page29: {
     image: 'Assets/25(VerticalStackHabs).png',
