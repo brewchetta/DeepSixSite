@@ -60,8 +60,9 @@ const pages = {
     variables: {}
   },
   page6: {
-    image: 'Assets/666.jpg',
+    image: 'Assets/30(BusyHabWindow).jpg',
     buttons: {
+      30: { image: 'Assets/30(BusyHabWindow).jpg', txt: 'Evade them!'}
     },
     num: 6,
     para: para6,
@@ -271,6 +272,13 @@ const pages = {
     num: 29,
     para: para29,
     variables: {}
+  },
+  page30: {
+    image: 'Assets/30(BusyHabWindow).jpg',
+    buttons: {},
+    num: 30,
+    para: para30,
+    variables: {damage: 1}
   }
 }
 
